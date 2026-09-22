@@ -2,1961 +2,226 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Arte para Além do Olhar — exposição virtual sobre arte e audiodescrição.">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Arte para Além do Olhar</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --bg:#0b0a09;
-  --panel:#151310;
-  --panel2:#1c1915;
-  --gold:#d7b56d;
-  --gold2:#f0d99b;
-  --text:#f7f2e8;
-  --muted:#b9b0a0;
-  --line:rgba(215,181,109,.2);
-  --shadow:0 24px 70px rgba(0,0,0,.45)
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0
-}
-
-html{
-  scroll-behavior:smooth
-}
-
-body{
-  background:
-    radial-gradient(circle at 20% 0%,rgba(113,83,34,.18),transparent 32%),
-    radial-gradient(circle at 90% 30%,rgba(70,48,100,.12),transparent 30%),
-    var(--bg);
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-  line-height:1.65
-}
-
-body.large{
-  font-size:18px
-}
-
-body.high-contrast{
-  --bg:#000;
-  --panel:#000;
-  --panel2:#080808;
-  --text:#fff;
-  --muted:#fff;
-  --gold:#fff;
-  --gold2:#fff;
-  --line:#fff
-}
-
-a{
-  color:inherit;
-  text-decoration:none
-}
-
-button{
-  font:inherit
-}
-
-.container{
-  width:min(1120px,92%);
-  margin:auto
-}
-
-/* HEADER */
-
-header{
-  position:fixed;
-  z-index:1000;
-  top:0;
-  width:100%;
-  background:rgba(11,10,9,.84);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line)
-}
-
-.nav{
-  height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between
-}
-
-.logo{
-  font-family:"Cormorant Garamond",serif;
-  font-size:1.55rem;
-  font-weight:700;
-  letter-spacing:.4px
-}
-
-.logo span{
-  color:var(--gold)
-}
-
-.navlinks{
-  display:flex;
-  gap:25px;
-  list-style:none
-}
-
-.navlinks a{
-  font-size:.83rem;
-  color:var(--muted);
-  transition:.25s
-}
-
-.navlinks a:hover{
-  color:var(--gold2)
-}
-
-.navbtn{
-  border:1px solid var(--line);
-  background:transparent;
-  color:var(--text);
-  padding:9px 13px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:.8rem
-}
-
-.menu{
-  display:none;
-  background:none;
-  border:0;
-  color:var(--text);
-  font-size:1.6rem
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  display:grid;
-  align-items:center;
-  padding:130px 0 80px;
-  position:relative;
-  overflow:hidden
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  right:-180px;
-  top:80px;
-  background:radial-gradient(circle,rgba(215,181,109,.16),transparent 68%);
-  pointer-events:none
-}
-
-.eyebrow{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:.73rem;
-  font-weight:700;
-  margin-bottom:22px
-}
-
-h1,h2,h3{
-  font-family:"Cormorant Garamond",serif
-}
-
-h1{
-  font-size:clamp(4rem,9vw,8.5rem);
-  line-height:.82;
-  letter-spacing:-3px;
-  max-width:850px
-}
-
-.gold{
-  color:var(--gold2)
-}
-
-.hero p{
-  max-width:650px;
-  color:var(--muted);
-  font-size:1.05rem;
-  margin:30px 0
-}
-
-.buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:7px;
-  padding:13px 19px;
-  font-weight:700;
-  font-size:.82rem;
-  transition:.25s;
-  border:1px solid var(--line);
-  cursor:pointer
-}
-
-.btn-primary{
-  background:var(--gold);
-  color:#17120a;
-  border-color:var(--gold)
-}
-
-.btn-primary:hover{
-  background:var(--gold2);
-  transform:translateY(-2px)
-}
-
-.btn-outline:hover{
-  border-color:var(--gold);
-  color:var(--gold2);
-  transform:translateY(-2px)
-}
-
-.quote{
-  margin-top:70px;
-  border-left:2px solid var(--gold);
-  padding-left:18px;
-  color:#d5cbb9;
-  font-family:"Cormorant Garamond",serif;
-  font-size:1.5rem
-}
-
-/* SECTIONS */
-
-section{
-  padding:105px 0;
-  scroll-margin-top:80px
-}
-
-.sectionhead{
-  margin-bottom:48px
-}
-
-.kicker{
-  color:var(--gold);
-  font-size:.72rem;
-  text-transform:uppercase;
-  letter-spacing:2.5px;
-  font-weight:700
-}
-
-h2{
-  font-size:clamp(2.8rem,5vw,4.7rem);
-  line-height:1;
-  margin-top:8px
-}
-
-.lead{
-  max-width:700px;
-  color:var(--muted);
-  margin-top:15px
-}
-
-/* CARDS */
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px
-}
-
-.card{
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.035),
-    rgba(255,255,255,.012)
-  );
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:28px;
-  transition:.3s
-}
-
-.card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(215,181,109,.5);
-  box-shadow:var(--shadow)
-}
-
-.number{
-  color:var(--gold);
-  font-size:.75rem;
-  letter-spacing:2px
-}
-
-.card h3{
-  font-size:2rem;
-  margin:20px 0 8px
-}
-
-.card p{
-  color:var(--muted);
-  font-size:.9rem
-}
-
-.note{
-  margin-top:35px;
-  padding:24px;
-  border:1px solid var(--line);
-  background:rgba(215,181,109,.045);
-  border-radius:12px
-}
-
-.note strong{
-  display:block;
-  color:var(--gold2);
-  margin-bottom:5px
-}
-
-/* GALLERY */
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:22px
-}
-
-.art{
-  border:1px solid var(--line);
-  border-radius:14px;
-  overflow:hidden;
-  background:var(--panel);
-  transition:.3s
-}
-
-.art:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow)
-}
-
-.art img{
-  width:100%;
-  height:350px;
-  object-fit:cover;
-  display:block;
-  background:#111
-}
-
-.art.feature{
-  grid-column:span 2
-}
-
-.art.feature img{
-  height:500px;
-  object-position:center
-}
-
-.artbody{
-  padding:23px
-}
-
-.meta{
-  color:var(--gold);
-  font-size:.7rem;
-  text-transform:uppercase;
-  letter-spacing:1.5px
-}
-
-.art h3{
-  font-size:2rem;
-  margin:5px 0
-}
-
-.art p{
-  color:var(--muted);
-  font-size:.88rem
-}
-
-.art .btn{
-  margin-top:16px
-}
-
-/* EXPERIENCE */
-
-.experience{
-  background:
-    linear-gradient(
-      180deg,
-      transparent,
-      rgba(215,181,109,.035),
-      transparent
-    )
-}
-
-.experiencebox{
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:45px;
-  background:
-    radial-gradient(
-      circle at 70% 20%,
-      rgba(215,181,109,.09),
-      transparent 38%
-    ),
-    var(--panel)
-}
-
-.steps{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  margin:40px 0
-}
-
-.step{
-  text-align:center;
-  padding:15px;
-  border-top:1px solid var(--line)
-}
-
-.step b{
-  display:block;
-  color:var(--gold);
-  font-size:.75rem;
-  letter-spacing:1px
-}
-
-.step span{
-  font-family:"Cormorant Garamond";
-  font-size:1.4rem
-}
-
-.audio{
-  margin-top:30px;
-  padding:25px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:#0d0c0a
-}
-
-.audio p{
-  color:var(--muted);
-  margin-bottom:16px
-}
-
-.controls{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap
-}
-
-.controls button{
-  background:var(--gold);
-  color:#17120a;
-  border:0;
-  border-radius:7px;
-  padding:10px 15px;
-  cursor:pointer;
-  font-weight:700
-}
-
-.controls button.alt{
-  background:transparent;
-  color:var(--text);
-  border:1px solid var(--line)
-}
-
-.hidden{
-  display:none
-}
-
-/* MONA LISA */
-
-.mona{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:start;
-  margin-top:40px
-}
-
-.mona img{
-  width:100%;
-  max-height:650px;
-  object-fit:contain;
-  background:#080706;
-  border-radius:12px;
-  border:1px solid var(--line)
-}
-
-.description{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:30px
-}
-
-.description h3{
-  font-size:2rem;
-  margin-bottom:12px
-}
-
-.description p{
-  color:var(--muted);
-  margin-bottom:16px
-}
-
-.poll{
-  margin-top:30px;
-  border-top:1px solid var(--line);
-  padding-top:25px
-}
-
-.poll button{
-  margin:8px 5px 0 0;
-  background:transparent;
-  color:var(--text);
-  border:1px solid var(--line);
-  padding:10px 15px;
-  border-radius:7px;
-  cursor:pointer
-}
-
-.poll button:hover{
-  border-color:var(--gold);
-  color:var(--gold)
-}
-
-.dynamic{
-  margin-top:25px;
-  color:var(--gold2);
-  min-height:28px
-}
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:55px
-}
-
-.info-box{
-  padding:35px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--panel)
-}
-
-.info-box h3{
-  font-size:2.1rem;
-  margin-bottom:10px
-}
-
-.info-box p{
-  color:var(--muted);
-  margin-bottom:15px
-}
-
-.fields{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:25px
-}
-
-.field{
-  padding:13px;
-  border:1px dashed var(--line);
-  border-radius:8px;
-  color:var(--muted)
-}
-
-.field b{
-  display:block;
-  color:var(--gold2);
-  font-size:.72rem;
-  text-transform:uppercase;
-  letter-spacing:1px
-}
-
-/* REFERENCES */
-
-.refs{
-  color:var(--muted);
-  font-size:.88rem
-}
-
-.refs li{
-  margin:10px 0 0 20px
-}
-
-/* QR */
-
-.qr{
-  text-align:center;
-  padding:45px;
-  border:1px solid var(--line);
-  border-radius:16px;
-  background:var(--panel)
-}
-
-.qr img{
-  width:190px;
-  height:190px;
-  background:#fff;
-  padding:10px;
-  border-radius:10px;
-  margin:22px auto;
-  display:block
-}
-
-.qr p{
-  color:var(--muted);
-  max-width:600px;
-  margin:auto
-}
-
-/* FOOTER */
-
-footer{
-  padding:35px 0;
-  border-top:1px solid var(--line);
-  color:var(--muted);
-  font-size:.78rem
-}
-
-.footerflex{
-  display:flex;
-  justify-content:space-between;
-  gap:20px
-}
-
-/* MODAL */
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.82);
-  z-index:2000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px
-}
-
-.modal.open{
-  display:flex
-}
-
-.modalbox{
-  max-width:850px;
-  width:100%;
-  max-height:90vh;
-  overflow:auto;
-  background:var(--panel2);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:30px;
-  position:relative
-}
-
-.close{
-  position:absolute;
-  right:18px;
-  top:15px;
-  border:0;
-  background:none;
-  color:var(--text);
-  font-size:1.5rem;
-  cursor:pointer
-}
-
-.modalbox img{
-  width:100%;
-  max-height:430px;
-  object-fit:contain;
-  margin:20px 0
-}
-
-.modalbox p{
-  color:var(--muted)
-}
-
-/* ACCESSIBILITY */
-
-.access-panel{
-  position:fixed;
-  right:18px;
-  top:88px;
-  z-index:1500;
-  background:var(--panel2);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:15px;
-  display:none;
-  box-shadow:var(--shadow)
-}
-
-.access-panel.open{
-  display:block
-}
-
-.access-panel button{
-  display:block;
-  width:100%;
-  margin:5px 0;
-  padding:9px;
-  border-radius:6px;
-  background:transparent;
-  color:var(--text);
-  border:1px solid var(--line);
-  cursor:pointer
-}
-
-/* RESPONSIVE */
-
-@media(max-width:850px){
-
-  .navlinks{
-    position:absolute;
-    top:74px;
-    left:0;
-    width:100%;
-    padding:20px;
-    background:rgba(11,10,9,.98);
-    display:none;
-    flex-direction:column
-  }
-
-  .navlinks.open{
-    display:flex
-  }
-
-  .menu{
-    display:block
-  }
-
-  .navbtn{
-    display:none
-  }
-
-  .cards,
-  .gallery{
-    grid-template-columns:1fr
-  }
-
-  .art.feature{
-    grid-column:auto
-  }
-
-  .art.feature img,
-  .art img{
-    height:340px
-  }
-
-  .mona,
-  .about{
-    grid-template-columns:1fr
-  }
-
-  .steps{
-    grid-template-columns:1fr;
-    gap:5px
-  }
-
-  .step{
-    text-align:left;
-    border-top:0;
-    border-left:1px solid var(--line)
-  }
-}
-
-@media(max-width:560px){
-
-  h1{
-    font-size:4rem
-  }
-
-  .hero{
-    padding-top:110px
-  }
-
-  .hero p{
-    font-size:.95rem
-  }
-
-  .quote{
-    font-size:1.25rem
-  }
-
-  .fields{
-    grid-template-columns:1fr
-  }
-
-  .footerflex{
-    flex-direction:column
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#faf7f0;color:#40382f;line-height:1.6}
+header{background:#eee5d5;padding:25px;text-align:center}
+header h1{font-size:2.3rem;color:#5d4937}
+header p{margin-top:8px}
+nav{background:#fffaf2;padding:12px;text-align:center;position:sticky;top:0;z-index:10}
+nav a{color:#604c39;text-decoration:none;margin:0 12px;font-weight:bold}
+section{max-width:1100px;margin:auto;padding:55px 20px}
+.hero{text-align:center;background:#f5eee2}
+.hero h2{font-size:2.6rem;color:#604936;margin-bottom:15px}
+.hero p{max-width:700px;margin:auto}
+.btn{display:inline-block;margin-top:20px;padding:12px 22px;background:#b8956d;color:white;border-radius:25px;text-decoration:none}
+h2{text-align:center;color:#604936;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.card{background:white;border-radius:15px;padding:18px;box-shadow:0 3px 12px #0001}
+.card img{width:100%;height:250px;object-fit:contain;background:#f3eee6;border-radius:10px}
+.card h3{margin:12px 0 6px;color:#604936}
+.card button{border:0;background:#b8956d;color:white;padding:9px 15px;border-radius:20px;cursor:pointer}
+.info{background:#f0e7da;border-radius:18px;padding:25px;margin-top:20px}
+footer{text-align:center;background:#e8ddce;padding:25px;margin-top:30px}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:20;align-items:center;justify-content:center;padding:20px}
+.modal-content{background:#fffaf3;max-width:650px;width:100%;padding:25px;border-radius:18px;position:relative}
+.close{position:absolute;right:20px;top:10px;font-size:28px;cursor:pointer}
+.modal img{width:100%;max-height:400px;object-fit:contain;border-radius:10px}
+@media(max-width:600px){
+header h1{font-size:1.8rem}
+.hero h2{font-size:2rem}
+nav a{margin:0 5px;font-size:.9rem}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
-  <div class="container nav">
-
-    <a class="logo" href="#inicio">
-      ARTE <span>PARA ALÉM DO OLHAR</span>
-    </a>
-
-    <button class="menu" id="menu" aria-label="Abrir menu">
-      ☰
-    </button>
-
-    <ul class="navlinks" id="navlinks">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#audio">Audiodescrição</a></li>
-      <li><a href="#obras">Obras</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
-      <li><a href="#sobre">Sobre o projeto</a></li>
-    </ul>
-
-    <button class="navbtn" id="accessBtn">
-      Acessibilidade
-    </button>
-
-  </div>
+<h1>Arte para Além do Olhar</h1>
+<p>Uma pequena viagem pela arte, acessibilidade e imaginação</p>
 </header>
 
-
-<!-- ================= ACCESSIBILITY ================= -->
-
-<div class="access-panel" id="accessPanel" aria-label="Opções de acessibilidade">
-
-  <strong>Acessibilidade</strong>
-
-  <button id="fontBtn">
-    Aumentar texto
-  </button>
-
-  <button id="contrastBtn">
-    Alto contraste
-  </button>
-
-  <button id="resetBtn">
-    Restaurar
-  </button>
-
-</div>
-
-
-<main>
-
-<!-- ================= HERO ================= -->
+<nav>
+<a href="#inicio">Início</a>
+<a href="#obras">Obras</a>
+<a href="#experiencia">Experiência</a>
+<a href="#projeto">Projeto</a>
+</nav>
 
 <section class="hero" id="inicio">
-
-  <div class="container">
-
-    <div class="eyebrow">
-      Exposição virtual • Arte e acessibilidade
-    </div>
-
-    <h1>
-      Arte para
-      <span class="gold">além do olhar.</span>
-    </h1>
-
-    <p>
-      Feche os olhos. Escute. Imagine. Depois, veja.
-      Uma experiência para compreender como a audiodescrição
-      transforma elementos visuais em palavras e amplia o acesso à arte.
-    </p>
-
-    <div class="buttons">
-
-      <a href="#experiencia" class="btn btn-primary">
-        Começar experiência
-      </a>
-
-      <a href="#obras" class="btn btn-outline">
-        Explorar obras
-      </a>
-
-    </div>
-
-    <div class="quote">
-      “A audiodescrição não substitui a visão.
-      Ela cria caminhos para que a informação visual também possa ser acessada pela linguagem.”
-    </div>
-
-  </div>
-
+<h2>Arte para sentir de outros jeitos.</h2>
+<p>
+Feche os olhos por um instante. Escute, imagine e só depois olhe.
+Esta exposição nasceu da ideia de que a arte também pode ser percebida
+por meio das palavras, dos sons e da imaginação.
+</p>
+<a href="#obras" class="btn">Conhecer as obras</a>
 </section>
-
-
-<!-- ================= AUDIODESCRIÇÃO ================= -->
-
-<section id="audio">
-
-  <div class="container">
-
-    <div class="sectionhead">
-
-      <div class="kicker">
-        01 • Audiodescrição
-      </div>
-
-      <h2>
-        Quando a imagem vira palavra.
-      </h2>
-
-      <p class="lead">
-        A audiodescrição é um recurso de acessibilidade que transforma
-        informações visuais em uma descrição verbal objetiva e organizada.
-      </p>
-
-    </div>
-
-
-    <div class="cards">
-
-      <div class="card">
-
-        <span class="number">
-          01
-        </span>
-
-        <h3>
-          Observar
-        </h3>
-
-        <p>
-          Identificar os elementos visuais relevantes da obra:
-          pessoas, objetos, cores, formas, posição, cenário e ações.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <span class="number">
-          02
-        </span>
-
-        <h3>
-          Selecionar
-        </h3>
-
-        <p>
-          Escolher quais informações são importantes para que
-          a pessoa compreenda a composição e tenha acesso ao conteúdo visual.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <span class="number">
-          03
-        </span>
-
-        <h3>
-          Descrever
-        </h3>
-
-        <p>
-          Organizar as informações em uma linguagem clara,
-          objetiva e compreensível.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="note">
-
-      <strong>
-        Por que isso importa?
-      </strong>
-
-      A acessibilidade cultural permite que diferentes pessoas
-      tenham condições de conhecer, interpretar e participar
-      de experiências artísticas.
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= OBRAS ================= -->
-
-<section id="obras">
-
-  <div class="container">
-
-    <div class="sectionhead">
-
-      <div class="kicker">
-        02 • Exposição
-      </div>
-
-      <h2>
-        Obras para imaginar.
-      </h2>
-
-      <p class="lead">
-        Explore algumas obras conhecidas e experimente receber
-        informações visuais por meio da linguagem.
-      </p>
-
-    </div>
-
-
-    <div class="gallery">
-
-
-      <!-- MONA LISA -->
-
-      <article class="art feature">
-
-        <img
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa%2C%20by%20Leonardo%20da%20Vinci%2C%20from%20C2RMF%20retouched.jpg"
-          alt="Mona Lisa, obra de Leonardo da Vinci"
-        >
-
-        <div class="artbody">
-
-          <div class="meta">
-            Leonardo da Vinci • c. 1503–1506
-          </div>
-
-          <h3>
-            Mona Lisa
-          </h3>
-
-          <p>
-            Um dos retratos mais conhecidos da história da arte,
-            apresentado aqui como ponto de partida para uma experiência
-            de audiodescrição.
-          </p>
-
-          <button
-            class="btn btn-primary explore"
-            data-art="mona"
-          >
-            Explorar obra
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- O GRITO -->
-
-      <article class="art">
-
-        <img
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Scream.jpg"
-          alt="O Grito, obra de Edvard Munch"
-        >
-
-        <div class="artbody">
-
-          <div class="meta">
-            Edvard Munch • 1893
-          </div>
-
-          <h3>
-            O Grito
-          </h3>
-
-          <p>
-            Uma composição marcada por linhas onduladas,
-            cores intensas e uma figura central expressiva.
-          </p>
-
-          <button
-            class="btn btn-outline explore"
-            data-art="grito"
-          >
-            Explorar obra
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- NOITE ESTRELADA -->
-
-      <article class="art">
-
-        <img
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
-          alt="Noite Estrelada, obra de Vincent van Gogh"
-        >
-
-        <div class="artbody">
-
-          <div class="meta">
-            Vincent van Gogh • 1889
-          </div>
-
-          <h3>
-            Noite Estrelada
-          </h3>
-
-          <p>
-            Uma paisagem noturna marcada por um céu movimentado,
-            estrelas luminosas e pinceladas intensas.
-          </p>
-
-          <button
-            class="btn btn-outline explore"
-            data-art="noite"
-          >
-            Explorar obra
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- ABAPORU -->
-
-      <article class="art">
-
-        <img
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/Abaporu.jpg"
-          alt="Abaporu, obra de Tarsila do Amaral"
-        >
-
-        <div class="artbody">
-
-          <div class="meta">
-            Tarsila do Amaral • 1928
-          </div>
-
-          <h3>
-            Abaporu
-          </h3>
-
-          <p>
-            Uma das obras mais conhecidas do modernismo brasileiro,
-            com formas humanas propositalmente exageradas.
-          </p>
-
-          <button
-            class="btn btn-outline explore"
-            data-art="abaporu"
-          >
-            Explorar obra
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- PERSISTÊNCIA -->
-
-      <article class="art">
-
-        <img
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Persistence_of_Memory.jpg"
-          alt="A Persistência da Memória, obra de Salvador Dalí"
-        >
-
-        <div class="artbody">
-
-          <div class="meta">
-            Salvador Dalí • 1931
-          </div>
-
-          <h3>
-            A Persistência da Memória
-          </h3>
-
-          <p>
-            Paisagem surrealista conhecida pelos relógios
-            deformados que parecem derreter.
-          </p>
-
-          <button
-            class="btn btn-outline explore"
-            data-art="persistencia"
-          >
-            Explorar obra
-          </button>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= EXPERIÊNCIA ================= -->
-
-<section id="experiencia" class="experience">
-
-  <div class="container">
-
-    <div class="sectionhead">
-
-      <div class="kicker">
-        03 • Experiência
-      </div>
-
-      <h2>
-        Experimente a obra sem vê-la.
-      </h2>
-
-      <p class="lead">
-        Feche os olhos e ouça a audiodescrição da Mona Lisa.
-        Tente construir mentalmente uma imagem antes de observá-la.
-      </p>
-
-    </div>
-
-
-    <div class="experiencebox">
-
-
-      <div class="steps">
-
-        <div class="step">
-          <b>01</b>
-          <span>Ver</span>
-        </div>
-
-        <div class="step">
-          <b>02</b>
-          <span>Observar</span>
-        </div>
-
-        <div class="step">
-          <b>03</b>
-          <span>Descrever</span>
-        </div>
-
-        <div class="step">
-          <b>04</b>
-          <span>Ouvir</span>
-        </div>
-
-        <div class="step">
-          <b>05</b>
-          <span>Imaginar</span>
-        </div>
-
-      </div>
-
-
-      <div class="mona">
-
-
-        <div>
-
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa%2C%20by%20Leonardo%20da%20Vinci%2C%20from%20C2RMF%20retouched.jpg"
-            alt="Mona Lisa, obra de Leonardo da Vinci"
-          >
-
-        </div>
-
-
-        <div class="description">
-
-          <div class="meta">
-            Obra principal • Renascimento
-          </div>
-
-          <h3>
-            Mona Lisa
-          </h3>
-
-          <p>
-            <strong>
-              Leonardo da Vinci — c. 1503–1506
-            </strong>
-          </p>
-
-
-          <p id="monaDesc">
-
-            Uma mulher aparece sentada, representada da cintura para cima.
-            Seu corpo está levemente voltado para a esquerda,
-            enquanto o rosto se direciona para o observador.
-            Ela tem cabelos longos e escuros e veste uma roupa de tons escuros.
-            As mãos estão sobrepostas diante do corpo.
-            O rosto apresenta uma expressão serena e um sorriso discreto.
-            Ao fundo, vê-se uma paisagem com caminhos, vegetação,
-            água e montanhas, construída em tons esverdeados e azulados.
-            A figura ocupa o centro da composição e contrasta
-            com a paisagem ao fundo.
-
-          </p>
-
-
-          <!-- AUDIO -->
-
-          <div class="audio">
-
-            <p>
-              <strong>
-                🔊 Ouça a audiodescrição
-              </strong>
-            </p>
-
-            <div class="controls">
-
-              <button id="play">
-                ▶ Reproduzir
-              </button>
-
-              <button id="pause" class="alt">
-                ⏸ Pausar
-              </button>
-
-              <button id="stop" class="alt">
-                ⏹ Parar
-              </button>
-
-              <button id="restart" class="alt">
-                🔄 Recomeçar
-              </button>
-
-            </div>
-
-          </div>
-
-
-          <!-- POLL -->
-
-          <div class="poll">
-
-            <strong>
-              A imagem que você imaginou era parecida com a obra?
-            </strong>
-
-            <br>
-
-            <button data-answer="sim">
-              Sim
-            </button>
-
-            <button data-answer="parcial">
-              Parcialmente
-            </button>
-
-            <button data-answer="nao">
-              Não
-            </button>
-
-            <div
-              class="dynamic"
-              id="answer"
-            ></div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= DINÂMICA ================= -->
 
 <section>
-
-  <div class="container">
-
-    <div class="sectionhead">
-
-      <div class="kicker">
-        04 • Em sala
-      </div>
-
-      <h2>
-        Nossa experiência
-      </h2>
-
-    </div>
-
-
-    <div class="info-box">
-
-      <p>
-
-        Durante a apresentação, parte da turma será vendada
-        enquanto algumas pessoas poderão observar uma representação
-        da Mona Lisa.
-
-      </p>
-
-
-      <p>
-
-        Quem estiver vendo será convidado a descrevê-la
-        para um colega que não pode vê-la.
-
-      </p>
-
-
-      <p>
-
-        A dinâmica busca demonstrar, de forma prática,
-        como a linguagem pode transmitir informações visuais
-        e por que a escolha e a organização dessas informações fazem diferença.
-
-      </p>
-
-
-      <div class="steps">
-
-        <div class="step">
-          <b>01</b>
-          <span>Ver</span>
-        </div>
-
-        <div class="step">
-          <b>02</b>
-          <span>Observar</span>
-        </div>
-
-        <div class="step">
-          <b>03</b>
-          <span>Descrever</span>
-        </div>
-
-        <div class="step">
-          <b>04</b>
-          <span>Ouvir</span>
-        </div>
-
-        <div class="step">
-          <b>05</b>
-          <span>Imaginar</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= SOBRE ================= -->
-
-<section id="sobre">
-
-  <div class="container">
-
-    <div class="sectionhead">
-
-      <div class="kicker">
-        05 • Projeto
-      </div>
-
-      <h2>
-        Sobre o projeto
-      </h2>
-
-    </div>
-
-
-    <div class="about">
-
-
-      <div class="info-box">
-
-        <h3>
-          Arte, acessibilidade e linguagem.
-        </h3>
-
-        <p>
-
-          Este site foi desenvolvido como parte de um trabalho
-          acadêmico sobre arte e audiodescrição.
-
-        </p>
-
-        <p>
-
-          A proposta é refletir sobre acessibilidade e demonstrar
-          como recursos de audiodescrição podem contribuir para
-          ampliar o acesso às manifestações artísticas e culturais.
-
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <div class="fields">
-
-          <div class="field">
-            <b>Integrantes</b>
-            Jaqueline Garcia, Juliana Baldin, Lívia Lopes e Monalisa Profeta
-          </div>
-
-          <div class="field">
-            <b>Universidade</b>
-            Universidade Federal do Oeste da Bahia - UFOB
-          </div>
-
-          <div class="field">
-            <b>Curso</b>
-            Bacharelado em Direito
-          </div>
-
-          <div class="field">
-            <b>Disciplina</b>
-            Oficina de Artes e Sensibilidades jurídicas
-          </div>
-
-          <div class="field">
-            <b>Professor(a)</b>
-            Ana Laura Silva Vilela
-          </div>
-
-        </div>
-
-
-        <div class="note">
-
-          <strong>
-            Acessibilidade
-          </strong>
-
-          O site foi pensado com contraste,
-          texto alternativo, navegação responsiva,
-          controles de áudio e opções de acessibilidade.
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= REFERÊNCIAS ================= -->
-
-<section>
-
-  <div class="container">
-
-    <div class="sectionhead">
-
-      <div class="kicker">
-        06 • Referências
-      </div>
-
-      <h2>
-        Fontes e referências
-      </h2>
-
-    </div>
-
-
-    <div class="info-box refs">
-
-      <ul>
-
-        <li>
-          Acervos e páginas institucionais dos museus responsáveis pelas obras.
-        </li>
-
-        <li>
-          Fontes acadêmicas e institucionais sobre audiodescrição
-          e acessibilidade cultural.
-        </li>
-
-        <li>
-          As imagens desta exposição devem ser verificadas quanto
-          à licença e à fonte antes da publicação definitiva.
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= QR CODE ================= -->
-
-<section>
-
-  <div class="container">
-
-    <div class="qr">
-
-      <div class="kicker">
-        07 • Acesso
-      </div>
-
-      <h2>
-        Acesse nossa exposição
-      </h2>
-
-      <p>
-
-        Aponte a câmera do celular para o QR Code.
-        Este código é atualizado para apontar para esta página
-        quando o endereço público estiver definido.
-
-      </p>
-
-
-      <img
-        id="qr"
-        alt="QR Code para acessar a exposição virtual"
-      >
-
-
-      <p>
-
-        <small>
-
-          Para publicar: hospede este arquivo em um serviço gratuito
-          e substitua o endereço do QR Code pelo link público.
-
-        </small>
-
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-  <div class="container footerflex">
-
-    <span>
-      ARTE PARA ALÉM DO OLHAR
-    </span>
-
-    <span>
-      Arte, acessibilidade e audiodescrição • 2026
-    </span>
-
-  </div>
-
-</footer>
-
-
-<!-- ================= MODAL ================= -->
-
-<div class="modal" id="modal">
-
-  <div class="modalbox">
-
-    <button
-      class="close"
-      id="close"
-      aria-label="Fechar"
-    >
-      ×
-    </button>
-
-    <div id="modalContent"></div>
-
-  </div>
-
+<h2>Quando a gente coloca uma imagem em palavras</h2>
+<div class="grid">
+<div class="card">
+<h3>👀 Olhar com atenção</h3>
+<p>Perceber cores, formas, expressões e pequenos detalhes que muitas vezes passam despercebidos.</p>
 </div>
 
+<div class="card">
+<h3>💭 Escolher o que importa</h3>
+<p>Entender quais elementos são essenciais para que outra pessoa consiga imaginar a obra.</p>
+</div>
 
-<!-- ================= JAVASCRIPT ================= -->
+<div class="card">
+<h3>🗣️ Colocar em palavras</h3>
+<p>Transformar aquilo que vemos em uma descrição clara, sensível e acessível.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Por que fazer isso?</h2>
+<div class="info">
+<p>
+A acessibilidade permite que mais pessoas tenham contato com a cultura
+e com a arte. A audiodescrição é uma das formas de tornar imagens,
+pinturas e exposições mais acessíveis para pessoas cegas ou com baixa visão.
+</p>
+</div>
+</section>
+
+<section id="obras">
+<h2>Obras para olhar, imaginar e conversar.</h2>
+<div class="grid" id="gallery"></div>
+</section>
+
+<section id="experiencia">
+<h2>Antes de olhar, tente imaginar.</h2>
+<div class="info">
+<p>
+Escolha uma obra, leia a descrição e tente construir a imagem na sua cabeça.
+Depois, compare sua imaginação com a pintura.
+</p>
+</div>
+</section>
+
+<section id="projeto">
+<h2>Uma experiência feita por nós</h2>
+<div class="info">
+<p>
+Este projeto foi desenvolvido por estudantes da Universidade Federal
+do Oeste da Bahia, unindo arte, acessibilidade e criatividade.
+</p>
+<br>
+<p><strong>Integrantes:</strong> Jaqueline Garcia, Juliana Baldin, Lívia Lopes e Monalisa Profeta.</p>
+<p><strong>Curso:</strong> Bacharelado em Direito</p>
+<p><strong>Disciplina:</strong> Oficina de Artes e Sensibilidades Jurídicas</p>
+<p><strong>Universidade:</strong> Universidade Federal do Oeste da Bahia – UFOB</p>
+</div>
+</section>
+
+<section>
+<h2>De onde vieram essas informações</h2>
+<div class="info">
+<p>
+As imagens e informações utilizadas na exposição foram pesquisadas
+em fontes públicas e referências relacionadas às obras apresentadas.
+</p>
+</div>
+</section>
+
+<section>
+<h2>Leve a exposição com você</h2>
+<div class="info" style="text-align:center">
+<p>Aponte a câmera do celular para o QR Code e acesse a exposição.</p>
+<div id="qrcode" style="margin:20px"></div>
+</div>
+</section>
+
+<footer>
+<p>Arte para Além do Olhar • UFOB</p>
+</footer>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<img id="modalImg" src="" alt="">
+<h2 id="modalTitle"></h2>
+<p id="modalText"></p>
+<button class="btn" onclick="speak()">🔊 Ouvir descrição</button>
+</div>
+</div>
 
 <script>
+const works=[
+{
+title:"Mona Lisa",
+img:"https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa.jpg",
+text:"Mona Lisa, de Leonardo da Vinci, apresenta uma mulher sentada, com roupas escuras e um olhar tranquilo. Ao fundo aparece uma paisagem com montanhas e caminhos."
+},
+{
+title:"O Grito",
+img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Scream.jpg",
+text:"O Grito, de Edvard Munch, mostra uma figura em primeiro plano com as mãos próximas ao rosto e uma expressão intensa. O céu aparece em tons fortes e ondulados."
+},
+{
+title:"A Noite Estrelada",
+img:"https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+text:"A Noite Estrelada, de Vincent van Gogh, apresenta um céu noturno cheio de estrelas, movimentos circulares e cores intensas. Abaixo aparece uma pequena cidade."
+},
+{
+title:"Abaporu",
+img:"https://commons.wikimedia.org/wiki/Special:FilePath/Abaporu.jpg",
+text:"Abaporu, de Tarsila do Amaral, apresenta uma figura humana de cabeça pequena, braços e pernas grandes, sentada diante de uma paisagem simples."
+},
+{
+title:"A Persistência da Memória",
+img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Persistence_of_Memory.jpg",
+text:"A Persistência da Memória, de Salvador Dalí, mostra relógios derretidos espalhados por uma paisagem silenciosa e surreal."
+}
+];
 
-/* MENU */
+const gallery=document.getElementById("gallery");
 
-const menu = document.getElementById('menu');
-const nav = document.getElementById('navlinks');
-
-menu.onclick = () => {
-  nav.classList.toggle('open');
-};
-
-nav.querySelectorAll('a').forEach(a => {
-  a.onclick = () => nav.classList.remove('open');
+works.forEach((work,i)=>{
+gallery.innerHTML+=`
+<div class="card">
+<img src="${work.img}" alt="${work.title}">
+<h3>${work.title}</h3>
+<p>${work.text}</p>
+<button onclick="openModal(${i})">Ver detalhes</button>
+</div>`;
 });
 
-
-/* ACESSIBILIDADE */
-
-const accessBtn = document.getElementById('accessBtn');
-const panel = document.getElementById('accessPanel');
-
-accessBtn.onclick = () => {
-  panel.classList.toggle('open');
-};
-
-document.getElementById('fontBtn').onclick = () => {
-  document.body.classList.toggle('large');
-};
-
-document.getElementById('contrastBtn').onclick = () => {
-  document.body.classList.toggle('high-contrast');
-};
-
-document.getElementById('resetBtn').onclick = () => {
-  document.body.classList.remove(
-    'large',
-    'high-contrast'
-  );
-};
-
-
-/* OBRAS */
-
-const works = {
-
-  mona:{
-    title:'Mona Lisa',
-    artist:'Leonardo da Vinci',
-    year:'c. 1503–1506',
-    movement:'Renascimento',
-    img:'https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa%2C%20by%20Leonardo%20da%20Vinci%2C%20from%20C2RMF%20retouched.jpg',
-    desc:'Retrato de uma mulher sentada, vista da cintura para cima. Ela está diante de uma paisagem ampla, com uma expressão serena e um sorriso discreto. A composição centraliza a figura humana e estabelece contraste entre o primeiro plano e a paisagem ao fundo.'
-  },
-
-  grito:{
-    title:'O Grito',
-    artist:'Edvard Munch',
-    year:'1893',
-    movement:'Expressionismo',
-    img:'https://commons.wikimedia.org/wiki/Special:FilePath/The%20Scream.jpg',
-    desc:'Uma figura aparece em primeiro plano sobre uma ponte, com o rosto e o corpo representados de maneira distorcida. Ao fundo, duas pessoas caminham, enquanto o céu apresenta linhas onduladas e cores intensas.'
-  },
-
-  noite:{
-    title:'Noite Estrelada',
-    artist:'Vincent van Gogh',
-    year:'1889',
-    movement:'Pós-Impressionismo',
-    img:'https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-    desc:'Paisagem noturna com céu azul profundo, estrelas e uma lua representadas por formas circulares e pinceladas marcadas. Um cipreste escuro ocupa o lado esquerdo e uma vila aparece abaixo das montanhas.'
-  },
-
-  abaporu:{
-    title:'Abaporu',
-    artist:'Tarsila do Amaral',
-    year:'1928',
-    movement:'Modernismo brasileiro',
-    img:'https://commons.wikimedia.org/wiki/Special:FilePath/Abaporu.jpg',
-    desc:'Figura humana de proporções exageradas sentada sobre uma superfície verde, com um grande pé em primeiro plano e uma pequena cabeça. Ao lado, há um cacto alto sob um céu azul e um sol amarelo.'
-  },
-
-  persistencia:{
-    title:'A Persistência da Memória',
-    artist:'Salvador Dalí',
-    year:'1931',
-    movement:'Surrealismo',
-    img:'https://commons.wikimedia.org/wiki/Special:FilePath/The_Persistence_of_Memory.jpg',
-    desc:'Paisagem silenciosa com objetos semelhantes a relógios de bolso deformados e aparentemente derretidos. Eles estão distribuídos sobre uma superfície rochosa, com uma paisagem ao fundo.'
-  }
-
-};
-
-
-/* MODAL */
-
-const modal = document.getElementById('modal');
-const content = document.getElementById('modalContent');
-
-document.querySelectorAll('.explore').forEach(btn => {
-
-  btn.onclick = () => {
-
-    const w = works[btn.dataset.art];
-
-    content.innerHTML = `
-
-      <div class="meta">
-        ${w.artist} • ${w.year} • ${w.movement}
-      </div>
-
-      <h2>
-        ${w.title}
-      </h2>
-
-      <img
-        src="${w.img}"
-        alt="${w.title}, de ${w.artist}"
-      >
-
-      <p>
-        ${w.desc}
-      </p>
-
-      <div class="audio">
-
-        <p>
-          <strong>
-            🔊 Audiodescrição resumida
-          </strong>
-        </p>
-
-        <div class="controls">
-
-          <button
-            onclick='speakText(${JSON.stringify(w.desc)})'
-          >
-            ▶ Ouvir
-          </button>
-
-          <button
-            class="alt"
-            onclick="speechSynthesis.cancel()"
-          >
-            ⏹ Parar
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-    modal.classList.add('open');
-
-  };
-
-});
-
-
-document.getElementById('close').onclick = () => {
-  modal.classList.remove('open');
-};
-
-
-modal.onclick = e => {
-
-  if(e.target === modal){
-    modal.classList.remove('open');
-  }
-
-};
-
-
-/* AUDIO DA MONA LISA */
-
-const desc = document.getElementById('monaDesc');
-
-function speakText(text){
-
-  speechSynthesis.cancel();
-
-  const u = new SpeechSynthesisUtterance(text);
-
-  u.lang = 'pt-BR';
-  u.rate = .92;
-
-  speechSynthesis.speak(u);
+function openModal(i){
+document.getElementById("modalImg").src=works[i].img;
+document.getElementById("modalImg").alt=works[i].title;
+document.getElementById("modalTitle").textContent=works[i].title;
+document.getElementById("modalText").textContent=works[i].text;
+document.getElementById("modal").style.display="flex";
 }
 
+function closeModal(){
+document.getElementById("modal").style.display="none";
+speechSynthesis.cancel();
+}
 
-document.getElementById('play').onclick = () => {
-  speakText(desc.innerText);
-};
+function speak(){
+const text=document.getElementById("modalText").textContent;
+const speech=new SpeechSynthesisUtterance(text);
+speech.lang="pt-BR";
+speech.rate=.9;
+speechSynthesis.speak(speech);
+}
 
+window.onclick=function(e){
+if(e.target===document.getElementById("modal"))closeModal();
+}
 
-document.getElementById('pause').onclick = () => {
-  speechSynthesis.pause();
-};
-
-
-document.getElementById('stop').onclick = () => {
-  speechSynthesis.cancel();
-};
-
-
-document.getElementById('restart').onclick = () => {
-  speakText(desc.innerText);
-};
-
-
-/* ENQUETE */
-
-document.querySelectorAll('.poll button').forEach(b => {
-
-  b.onclick = () => {
-
-    const x = document.getElementById('answer');
-
-    const m = {
-
-      sim:
-      'Que bom! A audiodescrição pode ter ajudado a aproximar a imagem imaginada da obra.',
-
-      parcial:
-      'É esperado. A audiodescrição oferece informações, mas cada pessoa pode construir sua própria representação mental.',
-
-      nao:
-      'Tudo bem. A experiência mostra justamente que palavras e percepção podem produzir imagens mentais diferentes.'
-
-    };
-
-    x.textContent = m[b.dataset.answer];
-
-  };
-
-});
-
-
-/* QR CODE */
-
-const page = location.href.split('#')[0];
-
-document.getElementById('qr').src =
-  'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data='
-  + encodeURIComponent(page);
-
+document.getElementById("qrcode").innerHTML=
+`<div style="font-size:70px">▣</div><p>QR Code da exposição</p>`;
 </script>
 
 </body>
