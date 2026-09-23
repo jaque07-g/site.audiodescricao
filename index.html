@@ -7,18 +7,18 @@
 <title>Arte para Além do Olhar</title>
 
 <style>
-:root{--bg:#f7f4ee;--paper:#fffdf9;--beige:#e9e0d2;--brown:#51463b;--brown-light:#75685b;--line:#d9d0c5;--accent:#92785e;--accent-dark:#715b45}
+:root{--bg:#fdf1ef;--paper:#fffaf9;--beige:#fbdcd7;--brown:#86274a;--brown-light:#9a4560;--line:#f6cbc5;--accent:#c94a40;--accent-dark:#86274a}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Georgia,"Times New Roman",serif;background:var(--bg);color:var(--brown);line-height:1.7}
 a{color:inherit}
-:focus-visible{outline:3px solid #7a6046;outline-offset:3px}
+:focus-visible{outline:3px solid #86274a;outline-offset:3px}
 
-header{background:var(--beige);text-align:center;padding:55px 20px 48px;border-bottom:1px solid var(--line)}
+header{background:var(--beige);text-align:center;padding:55px 20px 48px;border-bottom:4px solid #f4756a}
 header h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:500}
 header p{margin-top:10px;color:var(--brown-light);font-family:Arial,sans-serif;font-size:.95rem}
 
-nav{position:sticky;top:0;z-index:50;background:rgba(255,253,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:12px 15px}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,250,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:12px 15px}
 nav a{text-decoration:none;font-family:Arial,sans-serif;font-size:.86rem;padding:8px 13px;border-radius:4px;transition:.2s}
 nav a:hover{background:var(--beige)}
 
@@ -46,8 +46,8 @@ section{max-width:1120px;margin:auto;padding:75px 22px}
 
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:25px}
 .card{overflow:hidden;transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(70,55,40,.09)}
-.card-image{width:100%;height:290px;object-fit:contain;background:#eee9e0;display:block}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(134,39,74,.10)}
+.card-image{width:100%;height:290px;object-fit:contain;background:#fbe6e3;display:block}
 .movie-card .card-image,.artist-card .card-image{object-fit:cover}
 .card-body{padding:22px}
 .card-body h3{font-size:1.3rem;font-weight:500;margin-bottom:7px}
@@ -71,15 +71,15 @@ section{max-width:1120px;margin:auto;padding:75px 22px}
 .refs{margin-top:25px;font-family:Arial,sans-serif;font-size:.9rem;overflow-wrap:anywhere}
 .refs a{color:var(--accent-dark)}
 
-footer{background:#4b4239;color:#eee7dd;text-align:center;padding:35px 20px;font-family:Arial,sans-serif;font-size:.85rem}
+footer{background:#6e1f3d;color:#fde8e4;text-align:center;padding:35px 20px;font-family:Arial,sans-serif;font-size:.85rem}
 footer p+p{margin-top:7px;opacity:.75}
 
-.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(25,22,19,.82);align-items:center;justify-content:center;padding:20px}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(60,15,30,.82);align-items:center;justify-content:center;padding:20px}
 .modal.show{display:flex}
 .modal-content{position:relative;background:var(--paper);width:min(760px,100%);max-height:92vh;overflow:auto;padding:25px;border-radius:4px}
 .close{position:absolute;right:15px;top:8px;width:38px;height:38px;border:0;background:transparent;font-size:30px;color:var(--brown);cursor:pointer}
 .close:hover{background:var(--beige)}
-.modal img{width:100%;max-height:440px;object-fit:contain;background:#eee9e0;margin:30px 0 20px;display:block}
+.modal img{width:100%;max-height:440px;object-fit:contain;background:#fbe6e3;margin:30px 0 20px;display:block}
 .modal h2{font-size:1.8rem;font-weight:500;margin-bottom:12px}
 .modal p{color:var(--brown-light)}
 .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
@@ -357,8 +357,8 @@ const groups = {
 /* Quadro de reserva (não depende de nenhum site externo) */
 const fallback = title =>
     "data:image/svg+xml," + encodeURIComponent(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="#e9e0d2"/>` +
-        `<text x="400" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#51463b">${title.replace(/[<&]/g,"")}</text></svg>`
+        `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="#fbdcd7"/>` +
+        `<text x="400" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#86274a">${title.replace(/[<&]/g,"")}</text></svg>`
     );
 
 /* Se uma imagem falhar: 1º tenta o arquivo da pasta, 2º mostra o quadro com o título */
