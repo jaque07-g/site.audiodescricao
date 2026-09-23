@@ -271,7 +271,7 @@ footer p+p{margin-top:7px;opacity:.75}
     <div class="qr-box">
         <p>Escaneie o código para acessar a exposição.</p>
         <div id="qrcode"></div>
-        <p class="qr-note">O QR Code usa o endereço em que o site estiver hospedado. Ele só funciona depois que o site estiver online.</p>
+        <p class="qr-note">Aponte a câmera do celular para o código para abrir a exposição.</p>
     </div>
 </section>
 
@@ -298,4 +298,143 @@ footer p+p{margin-top:7px;opacity:.75}
 <script>
 /* ==========================================================
    IMAGENS
-   - wiki("Arquivo.jpg")
+   Os arquivos abaixo precisam estar na MESMA PASTA deste index.html.
+   Se uma imagem não carregar, aparece um quadro com o título.
+========================================================== */
+const IMG = {
+    luto:"luto.jpg",
+    abaporu:"abaporu.jpg",
+    notes:"notes-on-blindness.jpg",
+    pais:"pais-dos-surdos.jpg",
+    hoje:"hoje-eu-quero-voltar-sozinho.jpg",
+    jeimisson:"jeimisson-cesar.jpg",
+    eduardinho:"eduardinho.jpg",
+    qr:"qr-code.jpg"
+};
+
+const wiki = f => "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(f) + "?width=800";
+
+const works = [
+    { title:"Luto com o verbo", author:"Robinho Santana", img:IMG.luto,
+      text:"A pintura mostra uma multidão de pessoas negras, vistas de perto, que preenche toda a tela. Os rostos aparecem em diferentes tamanhos, sobrepostos uns aos outros, com olhares sérios e voltados para várias direções, alguns para quem observa. Há homens de cabelo curto e volumoso, uma mulher de cabelo crespo com brincos de pérola no primeiro plano e alguns chapéus escuros. Predominam tons de marrom nas peles e nos cabelos, com manchas de vermelho, azul, amarelo e branco nas roupas. O fundo, no alto, é claro, em tons de bege e rosa." },
+    { title:"Mona Lisa", author:"Leonardo da Vinci", img:wiki("Mona_Lisa.jpg"),
+      text:"A Mona Lisa apresenta uma mulher sentada, vista da cintura para cima. Ela veste roupas escuras e olha diretamente para quem observa a pintura. Seu rosto apresenta uma expressão serena, com um leve sorriso. Ao fundo aparece uma paisagem distante, formada por caminhos, rios, montanhas e tons azulados." },
+    { title:"O Grito", author:"Edvard Munch", img:wiki("The_Scream.jpg"),
+      text:"No centro da composição aparece uma figura humana diante de uma paisagem. A pessoa leva as mãos próximas ao rosto e apresenta uma expressão intensa. O céu possui grandes faixas onduladas em tons alaranjados e avermelhados. Ao fundo aparecem duas pessoas caminhando sobre uma ponte." },
+    { title:"A Noite Estrelada", author:"Vincent van Gogh", img:wiki("Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"),
+      text:"A pintura apresenta uma paisagem noturna. O céu ocupa grande parte da composição e é formado por movimentos circulares e ondulados em tons de azul. Estrelas e uma lua aparecem como pontos luminosos. Na parte inferior há uma pequena cidade e, à esquerda, uma grande árvore escura se eleva em direção ao céu." },
+    { title:"Abaporu", author:"Tarsila do Amaral", img:IMG.abaporu,
+      text:"A pintura apresenta uma figura humana sentada diante de uma paisagem. A cabeça é pequena em comparação com o corpo. Os braços e as pernas são muito grandes e ocupam grande parte da composição. A figura está próxima de um cacto e aparece sob um céu azul." },
+    { title:"A Persistência da Memória", author:"Salvador Dalí", img:wiki("The_Persistence_of_Memory.jpg"),
+      text:"A pintura apresenta uma paisagem silenciosa e surreal. Sobre diferentes superfícies aparecem relógios com aparência derretida, como se fossem objetos flexíveis. Ao fundo há uma paisagem rochosa e, no centro, uma forma orgânica sobre a qual repousa outro relógio. A cena transmite uma sensação de suspensão do tempo." }
+];
+
+const movies = [
+    { title:"Notes on Blindness", author:"Documentário", year:"2016", img:IMG.notes,
+      text:"Documentário inspirado nos diários de John Hull, escritor e professor que perdeu a visão na vida adulta. O filme explora sua experiência com a cegueira e a transformação de sua percepção do mundo." },
+    { title:"O País dos Surdos", author:"Nicolas Philibert", year:"1992", img:IMG.pais,
+      text:"Documentário que acompanha pessoas surdas e apresenta diferentes experiências de comunicação e percepção. A obra contribui para refletir sobre acessibilidade e sobre a importância de diferentes formas de linguagem." },
+    { title:"Hoje Eu Quero Voltar Sozinho", author:"Daniel Ribeiro", year:"2014", img:IMG.hoje,
+      text:"O filme acompanha Leonardo, um adolescente cego que busca maior independência e vive novas experiências de amizade e afeto. A narrativa aborda autonomia, relações sociais e a forma como a deficiência visual faz parte da experiência do personagem." }
+];
+
+const artists = [
+    { title:"Jeimisson César", author:"Artista visual", img:IMG.jeimisson,
+      text:"Na imagem, Jeimisson César aparece pintando. Ele é um homem de cabelo grisalho e camiseta azul, com o rosto bem próximo da tela, segurando um pincel fino com a mão direita. A tela mostra uma pintura de paisagem em tons de verde e azul." },
+    { title:"Eduardinho dos Teclados", author:"Músico", img:IMG.eduardinho,
+      text:"Na imagem, Eduardinho dos Teclados sorri e segura com as duas mãos os óculos escuros que usa. Ele tem cabelo curto, camiseta clara e correntes no pescoço. Atrás dele há caixas de som empilhadas, em um fundo azul e laranja, com o texto \"É diferente 2.0\"." }
+];
+
+const groups = {
+    work:   { list:works,   el:"gallery", cls:"",             btn:"Ver audiodescrição" },
+    movie:  { list:movies,  el:"movies",  cls:"movie-card",   btn:"Ver detalhes" },
+    artist: { list:artists, el:"artists", cls:"artist-card",  btn:"Conhecer artista" }
+};
+
+/* Quadro de reserva (não depende de nenhum site externo) */
+const fallback = title =>
+    "data:image/svg+xml," + encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="#e9e0d2"/>` +
+        `<text x="400" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#51463b">${title.replace(/[<&]/g,"")}</text></svg>`
+    );
+
+/* Se qualquer imagem falhar, troca pelo quadro de reserva */
+document.addEventListener("error", e => {
+    const img = e.target;
+    if (img.tagName === "IMG" && !img.dataset.fallback && !img.closest("#qrcode")) {
+        img.dataset.fallback = "1";
+        img.src = fallback(img.alt || "Imagem");
+    }
+}, true);
+
+/* ==========================================================
+   CARDS
+========================================================== */
+Object.entries(groups).forEach(([type, g]) => {
+    document.getElementById(g.el).innerHTML = g.list.map((item, i) => `
+        <article class="card ${g.cls}">
+            <img class="card-image" src="${item.img}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+                <div class="meta">${item.author}${item.year ? " · " + item.year : ""}</div>
+                <h3>${item.title}</h3>
+                <p>${item.text}</p>
+                <button class="btn" data-type="${type}" data-i="${i}">${g.btn}</button>
+            </div>
+        </article>`).join("");
+});
+
+/* ==========================================================
+   MODAL E LEITURA EM VOZ ALTA
+========================================================== */
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+let currentText = "", lastFocus = null;
+
+function openModal(type, i) {
+    const item = groups[type].list[i];
+    modalImg.removeAttribute("data-fallback");
+    modalImg.alt = item.title;
+    modalImg.src = item.img;
+    document.getElementById("modalTitle").textContent = item.title;
+    document.getElementById("modalText").textContent = item.text;
+    currentText = item.text;
+    lastFocus = document.activeElement;
+    modal.classList.add("show");
+    document.body.style.overflow = "hidden";
+    document.getElementById("closeBtn").focus();
+}
+
+function closeModal() {
+    modal.classList.remove("show");
+    document.body.style.overflow = "";
+    speechSynthesis.cancel();
+    if (lastFocus) lastFocus.focus();
+}
+
+function speak() {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(currentText);
+    u.lang = "pt-BR";
+    u.rate = 0.88;
+    speechSynthesis.speak(u);
+}
+
+document.addEventListener("click", e => {
+    const b = e.target.closest("button[data-type]");
+    if (b) openModal(b.dataset.type, b.dataset.i);
+    if (e.target === modal) closeModal();
+});
+document.getElementById("closeBtn").onclick = closeModal;
+document.getElementById("speakBtn").onclick = speak;
+document.getElementById("stopBtn").onclick = () => speechSynthesis.cancel();
+window.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+/* ==========================================================
+   QR CODE
+========================================================== */
+document.getElementById("qrcode").innerHTML =
+    `<img src="${IMG.qr}" alt="QR Code para acessar a exposição virtual">`;
+</script>
+
+</body>
+</html>
