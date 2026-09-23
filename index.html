@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Arte para Além do Olhar — exposição virtual sobre arte, audiodescrição e acessibilidade.">
+
+<meta
+name="description"
+content="Arte para Além do Olhar — exposição virtual sobre arte, audiodescrição e acessibilidade."
+>
+
 <title>Arte para Além do Olhar</title>
 
 <style>
+
 :root{
     --bg:#f7f4ee;
     --paper:#fffdf9;
@@ -44,8 +53,6 @@ a{
     outline-offset:3px;
 }
 
-/* CABEÇALHO */
-
 header{
     background:var(--beige);
     text-align:center;
@@ -64,8 +71,6 @@ header p{
     font-family:Arial,sans-serif;
     font-size:.95rem;
 }
-
-/* MENU */
 
 nav{
     position:sticky;
@@ -94,8 +99,6 @@ nav a:hover{
     background:var(--beige);
 }
 
-/* SEÇÕES */
-
 section{
     max-width:1120px;
     margin:auto;
@@ -117,8 +120,6 @@ section{
     margin:12px auto 0;
     color:var(--brown-light);
 }
-
-/* HERO */
 
 .hero{
     max-width:none;
@@ -146,8 +147,6 @@ section{
     color:var(--brown-light);
 }
 
-/* BOTÕES */
-
 .btn{
     display:inline-block;
     background:var(--accent);
@@ -166,8 +165,6 @@ section{
     background:var(--accent-dark);
     border-color:var(--accent-dark);
 }
-
-/* CARDS INTRODUÇÃO */
 
 .intro-grid{
     display:grid;
@@ -199,8 +196,6 @@ section{
     color:var(--brown-light);
 }
 
-/* TEXTO */
-
 .info{
     padding:32px;
     max-width:900px;
@@ -210,8 +205,6 @@ section{
 .info p+p{
     margin-top:15px;
 }
-
-/* GALERIA */
 
 .gallery{
     display:grid;
@@ -268,8 +261,6 @@ section{
     margin-top:18px;
 }
 
-/* EXPERIÊNCIA */
-
 .experience{
     background:var(--beige);
     max-width:none;
@@ -293,8 +284,6 @@ section{
     margin:auto;
 }
 
-/* PROJETO */
-
 .project-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -308,8 +297,6 @@ section{
 .project-box p+p{
     margin-top:9px;
 }
-
-/* FONTES */
 
 .sources{
     font-family:Arial,sans-serif;
@@ -326,8 +313,6 @@ section{
 .sources a:hover{
     text-decoration:underline;
 }
-
-/* QR CODE */
 
 .qr-section{
     text-align:center;
@@ -356,8 +341,6 @@ section{
     color:var(--brown-light);
 }
 
-/* RODAPÉ */
-
 footer{
     background:#4b4239;
     color:#eee7dd;
@@ -371,8 +354,6 @@ footer p+p{
     margin-top:7px;
     opacity:.75;
 }
-
-/* MODAL */
 
 .modal{
     display:none;
@@ -442,8 +423,6 @@ footer p+p{
     margin-top:22px;
 }
 
-/* ACESSIBILIDADE */
-
 .skip-link{
     position:absolute;
     left:-9999px;
@@ -456,8 +435,6 @@ footer p+p{
 .skip-link:focus{
     left:10px;
 }
-
-/* RESPONSIVIDADE */
 
 @media(max-width:800px){
 
@@ -473,6 +450,7 @@ footer p+p{
     .hero{
         padding:75px 20px;
     }
+
 }
 
 @media(max-width:550px){
@@ -497,1038 +475,195 @@ footer p+p{
     .modal-content{
         padding:18px;
     }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <a href="#conteudo" class="skip-link">
-    Pular para o conteúdo principal
+Pular para o conteúdo principal
 </a>
 
 <header>
-    <h1>Arte para Além do Olhar</h1>
-    <p>Arte, audiodescrição e acessibilidade</p>
+
+<h1>Arte para Além do Olhar</h1>
+
+<p>
+Arte, audiodescrição e acessibilidade
+</p>
+
 </header>
 
 <nav aria-label="Navegação principal">
-    <a href="#inicio">Início</a>
-    <a href="#audiodescricao">Audiodescrição</a>
-    <a href="#obras">Obras</a>
-    <a href="#filmes">Filmes</a>
-    <a href="#artistas">Artistas</a>
-    <a href="#projeto">Projeto</a>
+
+<a href="#inicio">Início</a>
+
+<a href="#audiodescricao">
+Audiodescrição
+</a>
+
+<a href="#obras">
+Obras
+</a>
+
+<a href="#filmes">
+Filmes
+</a>
+
+<a href="#artistas">
+Artistas
+</a>
+
+<a href="#projeto">
+Projeto
+</a>
+
 </nav>
 
 <main id="conteudo">
 
-<!-- INÍCIO -->
-
 <section class="hero" id="inicio">
 
-    <div class="hero-inner">
-
-        <h2>
-            Arte para sentir de outros jeitos.
-        </h2>
-
-        <p>
-            Uma exposição virtual que propõe uma experiência diferente diante da arte:
-            primeiro ouvir, imaginar e construir mentalmente uma imagem;
-            depois, observar e comparar.
-        </p>
-
-        <a href="#obras" class="btn">
-            Entrar na exposição
-        </a>
-
-    </div>
-
-</section>
-
-<!-- AUDIODESCRIÇÃO -->
-
-<section id="audiodescricao">
-
-    <div class="section-title">
-
-        <h2>
-            Quando uma imagem se transforma em palavras
-        </h2>
-
-        <p>
-            A audiodescrição transforma elementos visuais em informações verbais,
-            permitindo que uma obra possa ser conhecida por outros caminhos além da visão.
-        </p>
-
-    </div>
-
-    <div class="intro-grid">
-
-        <article class="intro-card">
-
-            <h3>1. Observar</h3>
-
-            <p>
-                Identificar formas, cores, posições, expressões,
-                movimentos e outros elementos importantes da imagem.
-            </p>
-
-        </article>
-
-        <article class="intro-card">
-
-            <h3>2. Selecionar</h3>
-
-            <p>
-                Escolher as informações essenciais para que a pessoa
-                consiga construir uma representação mental da obra.
-            </p>
-
-        </article>
-
-        <article class="intro-card">
-
-            <h3>3. Descrever</h3>
-
-            <p>
-                Transformar aquilo que é visual em uma linguagem
-                clara, objetiva e compreensível.
-            </p>
-
-        </article>
-
-    </div>
-
-</section>
-
-<!-- POR QUE AUDIODESCREVER -->
-
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            Por que audiodescrever?
-        </h2>
-
-    </div>
-
-    <div class="info">
-
-        <p>
-            A acessibilidade amplia as possibilidades de participação cultural.
-            Em exposições, museus, apresentações e ambientes digitais,
-            a audiodescrição pode contribuir para que pessoas cegas ou com
-            baixa visão tenham acesso a informações visuais.
-        </p>
-
-        <p>
-            Mais do que descrever uma imagem, a proposta é criar uma ponte
-            entre a obra e quem a experiencia.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- OBRAS -->
-
-<section id="obras">
-
-    <div class="section-title">
-
-        <h2>
-            Obras para olhar, imaginar e conversar
-        </h2>
-
-        <p>
-            Escolha uma obra. Leia a descrição antes de olhar para ela.
-            Depois, compare a imagem com aquilo que você imaginou.
-        </p>
-
-    </div>
-
-    <div class="gallery" id="gallery"></div>
-
-</section>
-
-<!-- EXPERIÊNCIA -->
-
-<section class="experience">
-
-    <div>
-
-        <h2>
-            Antes de olhar, tente imaginar.
-        </h2>
-
-        <p>
-            Escolha uma das obras acima e leia sua audiodescrição.
-            Feche os olhos por alguns segundos e construa mentalmente
-            a cena. Depois, abra os olhos e compare sua imaginação
-            com a obra apresentada.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- FILMES -->
-
-<section id="filmes">
-
-    <div class="section-title">
-
-        <h2>
-            Filmes e experiências audiovisuais
-        </h2>
-
-        <p>
-            O cinema também pode discutir deficiência visual,
-            acessibilidade, percepção e diferentes formas de
-            experimentar o mundo.
-        </p>
-
-    </div>
-
-    <div class="gallery" id="movies"></div>
-
-</section>
-
-<!-- ARTISTAS -->
-
-<section id="artistas">
-
-    <div class="section-title">
-
-        <h2>
-            Artistas com deficiência visual
-        </h2>
-
-        <p>
-            A deficiência visual não impede a produção artística.
-            Estes artistas mostram diferentes possibilidades de
-            criação, percepção e expressão.
-        </p>
-
-    </div>
-
-    <div class="gallery" id="artists"></div>
-
-</section>
-
-<!-- ACESSIBILIDADE -->
-
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            Acessibilidade também é participação
-        </h2>
-
-    </div>
-
-    <div class="info">
-
-        <p>
-            Pensar acessibilidade significa considerar diferentes formas
-            de acesso, participação e compreensão. No caso das artes visuais,
-            a audiodescrição é uma das ferramentas que pode aproximar a obra
-            de pessoas cegas ou com baixa visão.
-        </p>
-
-        <p>
-            Uma exposição acessível não precisa abandonar a experiência visual.
-            Ela pode ampliar a experiência para que diferentes pessoas possam
-            participar dela.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- PROJETO -->
-
-<section id="projeto">
-
-    <div class="section-title">
-
-        <h2>
-            Sobre o projeto
-        </h2>
-
-    </div>
-
-    <div class="project-grid">
-
-        <div class="project-box">
-
-            <h3>
-                Uma experiência feita por nós
-            </h3>
-
-            <p>
-                Este projeto foi desenvolvido por estudantes da
-                Universidade Federal do Oeste da Bahia, relacionando
-                arte, acessibilidade, percepção e sensibilidades.
-            </p>
-
-        </div>
-
-        <div class="project-box">
-
-            <h3>
-                Identificação
-            </h3>
-
-            <p>
-                <strong>Integrantes:</strong>
-            </p>
-
-            <p>
-                Jaqueline Garcia<br>
-                Juliana Baldin<br>
-                Lívia Lopes<br>
-                Monalisa Profeta
-            </p>
-
-            <p>
-                <strong>Curso:</strong>
-                Bacharelado em Direito
-            </p>
-
-            <p>
-                <strong>Disciplina:</strong>
-                Oficina de Artes e Sensibilidades Jurídicas
-            </p>
-
-            <p>
-                <strong>Universidade:</strong>
-                Universidade Federal do Oeste da Bahia — UFOB
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FONTES -->
-
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            Fontes e referências
-        </h2>
-
-        <p>
-            Consulte as fontes para conhecer as obras, os artistas
-            e os temas apresentados nesta exposição.
-        </p>
-
-    </div>
-
-    <div class="info sources">
-
-        <a href="https://commons.wikimedia.org/"
-           target="_blank"
-           rel="noopener noreferrer">
-
-            Wikimedia Commons — acervo de imagens
-
-        </a>
-
-        <a href="https://www.moma.org/"
-           target="_blank"
-           rel="noopener noreferrer">
-
-            Museum of Modern Art — MoMA
-
-        </a>
-
-        <a href="https://www.metmuseum.org/"
-           target="_blank"
-           rel="noopener noreferrer">
-
-            The Metropolitan Museum of Art
-
-        </a>
-
-        <a href="https://adevise.com.br/"
-           target="_blank"
-           rel="noopener noreferrer">
-
-            ADEVise — Associação dos Deficientes Visuais de Sergipe
-
-        </a>
-
-    </div>
-
-</section>
-
-<!-- QR CODE -->
-
-<section class="qr-section">
-
-    <div class="section-title">
-
-        <h2>
-            Leve a exposição com você
-        </h2>
-
-        <p>
-            O QR Code pode ser utilizado para disponibilizar
-            o endereço desta exposição durante a apresentação.
-        </p>
-
-    </div>
-
-    <div class="qr-box">
-
-        <p>
-            Escaneie o código para acessar a exposição.
-        </p>
-
-        <div id="qrcode"></div>
-
-        <p class="qr-note">
-            Aponte a câmera do celular para o código
-            para abrir a exposição.
-        </p>
-
-    </div>
-
-</section>
-
-</main>
-
-<footer>
-
-    <p>
-        Arte para Além do Olhar
-    </p>
-
-    <p>
-        Projeto acadêmico — Universidade Federal do Oeste da Bahia
-    </p>
-
-</footer>
-
-<!-- MODAL -->
-
-<div
-    class="modal"
-    id="modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modalTitle"
-    aria-describedby="modalText"
->
-
-    <div class="modal-content">
-
-        <button
-            class="close"
-            id="closeBtn"
-            aria-label="Fechar"
-        >
-            ×
-        </button>
-
-        <img
-            id="modalImg"
-            src=""
-            alt=""
-        >
-
-        <h2 id="modalTitle"></h2>
-
-        <p id="modalText"></p>
-
-        <div class="modal-actions">
-
-            <button class="btn" id="speakBtn">
-                Ouvir descrição
-            </button>
-
-            <button class="btn" id="stopBtn">
-                Parar leitura
-            </button>
-
-        </div>
-
-    </div>
+<div class="hero-inner">
+
+<h2>
+Arte para sentir de outros jeitos.
+</h2>
+
+<p>
+Uma exposição virtual que propõe uma experiência diferente diante da arte:
+primeiro ouvir, imaginar e construir mentalmente uma imagem;
+depois, observar e comparar.
+</p>
+
+<a href="#obras" class="btn">
+Entrar na exposição
+</a>
 
 </div>
 
-<script>
+</section>
 
-/* ==========================================================
-   FUNÇÃO PARA IMAGENS DO WIKIMEDIA COMMONS
-   ========================================================== */
+<section id="audiodescricao">
 
-function wiki(file){
+<div class="section-title">
 
-    return "https://commons.wikimedia.org/wiki/Special:FilePath/"
-        + encodeURIComponent(file)
-        + "?width=900";
+<h2>
+Quando uma imagem se transforma em palavras
+</h2>
 
-}
+<p>
+A audiodescrição transforma elementos visuais em informações verbais,
+permitindo que uma obra possa ser conhecida por outros caminhos além da visão.
+</p>
 
+</div>
 
-/* ==========================================================
-   OBRAS
-   Todas as imagens abaixo são carregadas diretamente da web.
-   ========================================================== */
+<div class="intro-grid">
 
-const works = [
+<article class="intro-card">
 
-    {
-        title:"Mona Lisa",
-        author:"Leonardo da Vinci",
+<h3>1. Observar</h3>
 
-        img:wiki("Mona Lisa.jpg"),
+<p>
+Identificar formas, cores, posições, expressões,
+movimentos e outros elementos importantes da imagem.
+</p>
 
-        text:
-        "A Mona Lisa apresenta uma mulher sentada, vista da cintura para cima. " +
-        "Ela veste roupas escuras e olha diretamente para quem observa a pintura. " +
-        "Seu rosto apresenta uma expressão serena, com um leve sorriso. " +
-        "Ao fundo aparece uma paisagem distante, formada por caminhos, rios, " +
-        "montanhas e tons azulados."
-    },
+</article>
 
-    {
-        title:"O Grito",
-        author:"Edvard Munch",
+<article class="intro-card">
 
-        img:wiki("The Scream.jpg"),
+<h3>2. Selecionar</h3>
 
-        text:
-        "No centro da composição aparece uma figura humana diante de uma paisagem. " +
-        "A pessoa leva as mãos próximas ao rosto e apresenta uma expressão intensa. " +
-        "O céu possui grandes faixas onduladas em tons alaranjados e avermelhados. " +
-        "Ao fundo aparecem duas pessoas caminhando sobre uma ponte."
-    },
+<p>
+Escolher as informações essenciais para que a pessoa
+consiga construir uma representação mental da obra.
+</p>
 
-    {
-        title:"A Noite Estrelada",
-        author:"Vincent van Gogh",
+</article>
 
-        img:wiki("Van Gogh - Starry Night - Google Art Project.jpg"),
+<article class="intro-card">
 
-        text:
-        "A pintura apresenta uma paisagem noturna. O céu ocupa grande parte " +
-        "da composição e é formado por movimentos circulares e ondulados em tons de azul. " +
-        "Estrelas e uma lua aparecem como pontos luminosos. Na parte inferior há uma pequena " +
-        "cidade e, à esquerda, uma grande árvore escura se eleva em direção ao céu."
-    },
+<h3>3. Descrever</h3>
 
-    {
-        title:"Abaporu",
-        author:"Tarsila do Amaral",
+<p>
+Transformar aquilo que é visual em uma linguagem
+clara, objetiva e compreensível.
+</p>
 
-        img:wiki("Abaporu en el MALBA.jpg"),
+</article>
 
-        text:
-        "A pintura apresenta uma figura humana sentada diante de uma paisagem. " +
-        "A cabeça é pequena em comparação com o corpo. Os braços e as pernas são muito grandes " +
-        "e ocupam grande parte da composição. A figura está próxima de um cacto e aparece sob um céu azul."
-    },
+</div>
 
-    {
-        title:"A Persistência da Memória",
-        author:"Salvador Dalí",
+</section>
 
-        img:wiki("The Persistence of Memory.jpg"),
+<section>
 
-        text:
-        "A pintura apresenta uma paisagem silenciosa e surreal. Sobre diferentes superfícies " +
-        "aparecem relógios com aparência derretida, como se fossem objetos flexíveis. " +
-        "Ao fundo há uma paisagem rochosa e, no centro, uma forma orgânica sobre a qual repousa " +
-        "outro relógio. A cena transmite uma sensação de suspensão do tempo."
-    }
+<div class="section-title">
 
-];
+<h2>
+Por que audiodescrever?
+</h2>
 
+</div>
 
-/* ==========================================================
-   FILMES
-   ========================================================== */
+<div class="info">
 
-const movies = [
+<p>
+A acessibilidade amplia as possibilidades de participação cultural.
+Em exposições, museus, apresentações e ambientes digitais,
+a audiodescrição pode contribuir para que pessoas cegas ou com
+baixa visão tenham acesso a informações visuais.
+</p>
 
-    {
-        title:"Notes on Blindness",
-        author:"Documentário",
-        year:"2016",
+<p>
+Mais do que descrever uma imagem, a proposta é criar uma ponte
+entre a obra e quem a experiencia.
+</p>
 
-        img:
-        "https://www.omelete.com.br/images/filmes/capas/notes-on-blindness.jpg",
+</div>
 
-        text:
-        "Documentário inspirado nos diários de John Hull, escritor e professor " +
-        "que perdeu a visão na vida adulta. O filme explora sua experiência com " +
-        "a cegueira e as transformações em sua percepção do mundo."
-    },
+</section>
 
-    {
-        title:"Ensaio sobre a Cegueira",
-        author:"Fernando Meirelles",
-        year:"2008",
+<section id="obras">
 
-        img:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Ensaio_sobre_a_Cegueira_centro_de_SP.jpg/800px-Ensaio_sobre_a_Cegueira_centro_de_SP.jpg",
+<div class="section-title">
 
-        text:
-        "Filme dirigido por Fernando Meirelles e baseado no romance de José Saramago. " +
-        "A narrativa apresenta uma sociedade atingida por uma epidemia de cegueira " +
-        "e permite discutir percepção, autonomia, relações humanas e exclusão."
-    },
+<h2>
+Obras para olhar, imaginar e conversar
+</h2>
 
-    {
-        title:"Hoje Eu Quero Voltar Sozinho",
-        author:"Daniel Ribeiro",
-        year:"2014",
+<p>
+Escolha uma obra. Leia a descrição antes de olhar para ela.
+Depois, compare a imagem com aquilo que você imaginou.
+</p>
 
-        img:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/The_Way_He_Looks_Official_Brazilian_Poster.jpg/800px-The_Way_He_Looks_Official_Brazilian_Poster.jpg",
+</div>
 
-        text:
-        "O filme acompanha Leonardo, um adolescente cego que busca maior independência. " +
-        "A narrativa aborda amizade, autonomia, relações sociais e a experiência de uma pessoa cega."
-    }
+<div class="gallery" id="gallery"></div>
 
-];
-
-
-/* ==========================================================
-   ARTISTAS
-   ========================================================== */
+</section>
 
-const artists = [
+<section class="experience">
 
-    {
-        title:"Jeimisson César",
-        author:"Artista visual",
+<div>
 
-        img:
-        "https://arteseacessibilidade.wixsite.com/arteseacessibilidade/_files/ugd/34b158_34b15886-128d-4eef-9826-a4b096484a14.jpg",
+<h2>
+Antes de olhar, tente imaginar.
+</h2>
 
-        text:
-        "Jeimisson César Silva Santos é aluno do curso de desenho e pintura " +
-        "da ADEVise, Associação dos Deficientes Visuais de Sergipe. " +
-        "Diagnosticado com cegueira legal, encontrou na arte uma forma de expressão e liberdade."
-    },
+<p>
+Escolha uma das obras acima e leia sua audiodescrição.
+Feche os olhos por alguns segundos e construa mentalmente
+a cena. Depois, abra os olhos e compare sua imaginação
+com a obra apresentada.
+</p>
 
-    {
-        title:"Eduardinho dos Teclados",
-        author:"Músico",
+</div>
 
-        img:
-        "https://www.cifraclub.com.br/eduardinho-dos-teclados/images/eduardinho-dos-teclados.jpg",
-
-        text:
-        "Eduardinho dos Teclados é músico brasileiro. Sua presença na exposição " +
-        "amplia a discussão sobre diferentes formas de expressão artística e percepção."
-    }
-
-];
-
-
-/* ==========================================================
-   GRUPOS
-   ========================================================== */
-
-const groups = {
-
-    work:{
-        list:works,
-        el:"gallery",
-        cls:"",
-        btn:"Ver audiodescrição"
-    },
-
-    movie:{
-        list:movies,
-        el:"movies",
-        cls:"movie-card",
-        btn:"Ver detalhes"
-    },
-
-    artist:{
-        list:artists,
-        el:"artists",
-        cls:"artist-card",
-        btn:"Conhecer artista"
-    }
-
-};
-
-
-/* ==========================================================
-   IMAGEM DE RESERVA
-   Se uma imagem externa falhar, o site continua funcionando.
-   ========================================================== */
-
-function fallback(title){
-
-    return "data:image/svg+xml;charset=UTF-8," +
-
-    encodeURIComponent(`
-
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="800"
-            height="800"
-            viewBox="0 0 800 800"
-        >
-
-            <rect
-                width="800"
-                height="800"
-                fill="#e9e0d2"
-            />
-
-            <text
-                x="400"
-                y="400"
-                text-anchor="middle"
-                dominant-baseline="middle"
-                font-family="Georgia, serif"
-                font-size="38"
-                fill="#51463b"
-            >
-                ${title}
-            </text>
-
-        </svg>
-
-    `);
-
-}
-
-
-/* ==========================================================
-   TRATAMENTO DE ERRO DAS IMAGENS
-   ========================================================== */
-
-document.addEventListener(
-
-    "error",
-
-    function(e){
-
-        const img = e.target;
-
-        if(
-            img.tagName === "IMG" &&
-            !img.dataset.fallback
-        ){
-
-            img.dataset.fallback = "1";
-
-            img.src = fallback(
-                img.alt || "Imagem"
-            );
-
-        }
-
-    },
-
-    true
-
-);
-
-
-/* ==========================================================
-   CRIAÇÃO DOS CARDS
-   ========================================================== */
-
-Object.entries(groups).forEach(
-
-    ([type,g]) => {
-
-        const container =
-            document.getElementById(g.el);
-
-        container.innerHTML =
-            g.list.map(
-
-                (item,i) => `
-
-                    <article class="card ${g.cls}">
-
-                        <img
-                            class="card-image"
-                            src="${item.img}"
-                            alt="${item.title}"
-                            loading="lazy"
-                        >
-
-                        <div class="card-body">
-
-                            <div class="meta">
-                                ${item.author}
-                                ${item.year ? " · " + item.year : ""}
-                            </div>
-
-                            <h3>
-                                ${item.title}
-                            </h3>
-
-                            <p>
-                                ${item.text}
-                            </p>
-
-                            <button
-                                class="btn"
-                                data-type="${type}"
-                                data-i="${i}"
-                            >
-                                ${g.btn}
-                            </button>
-
-                        </div>
-
-                    </article>
-
-                `
-
-            ).join("");
-
-    }
-
-);
-
-
-/* ==========================================================
-   MODAL
-   ========================================================== */
-
-const modal =
-    document.getElementById("modal");
-
-const modalImg =
-    document.getElementById("modalImg");
-
-let currentText = "";
-
-let lastFocus = null;
-
-
-function openModal(type,i){
-
-    const item =
-        groups[type].list[i];
-
-    modalImg.dataset.fallback = "";
-
-    modalImg.alt =
-        item.title;
-
-    modalImg.src =
-        item.img;
-
-    document.getElementById(
-        "modalTitle"
-    ).textContent =
-        item.title;
-
-    document.getElementById(
-        "modalText"
-    ).textContent =
-        item.text;
-
-    currentText =
-        item.text;
-
-    lastFocus =
-        document.activeElement;
-
-    modal.classList.add("show");
-
-    document.body.style.overflow =
-        "hidden";
-
-    document.getElementById(
-        "closeBtn"
-    ).focus();
-
-}
-
-
-function closeModal(){
-
-    modal.classList.remove("show");
-
-    document.body.style.overflow =
-        "";
-
-    if(
-        "speechSynthesis" in window
-    ){
-
-        speechSynthesis.cancel();
-
-    }
-
-    if(lastFocus){
-
-        lastFocus.focus();
-
-    }
-
-}
-
-
-/* ==========================================================
-   LEITURA EM VOZ ALTA
-   ========================================================== */
-
-function speak(){
-
-    if(
-        !("speechSynthesis" in window)
-    ){
-
-        alert(
-            "Seu navegador não oferece leitura em voz alta."
-        );
-
-        return;
-
-    }
-
-    speechSynthesis.cancel();
-
-    const utterance =
-        new SpeechSynthesisUtterance(
-            currentText
-        );
-
-    utterance.lang =
-        "pt-BR";
-
-    utterance.rate =
-        0.88;
-
-    speechSynthesis.speak(
-        utterance
-    );
-
-}
-
-
-/* ==========================================================
-   EVENTOS
-   ========================================================== */
-
-document.addEventListener(
-
-    "click",
-
-    function(e){
-
-        const button =
-            e.target.closest(
-                "button[data-type]"
-            );
-
-        if(button){
-
-            openModal(
-                button.dataset.type,
-                button.dataset.i
-            );
-
-        }
-
-        if(e.target === modal){
-
-            closeModal();
-
-        }
-
-    }
-
-);
-
-
-document.getElementById(
-    "closeBtn"
-).onclick =
-    closeModal;
-
-
-document.getElementById(
-    "speakBtn"
-).onclick =
-    speak;
-
-
-document.getElementById(
-    "stopBtn"
-).onclick = function(){
-
-    if(
-        "speechSynthesis" in window
-    ){
-
-        speechSynthesis.cancel();
-
-    }
-
-};
-
-
-window.addEventListener(
-
-    "keydown",
-
-    function(e){
-
-        if(e.key === "Escape"){
-
-            closeModal();
-
-        }
-
-    }
-
-);
-
-
-/* ==========================================================
-   QR CODE
-   Agora o QR NÃO depende de qr-code.jpg.
-   ========================================================== */
-
-const currentPage =
-    window.location.href;
-
-const qrURL =
-    "https://api.qrserver.com/v1/create-qr-code/" +
-    "?size=300x300&data=" +
-    encodeURIComponent(currentPage);
-
-document.getElementById(
-    "qrcode"
-).innerHTML = `
-
-    <img
-        src="${qrURL}"
-        alt="QR Code para acessar a exposição virtual"
-    >
-
-`;
-
-</script>
-
-</body>
-</html>
+</section>
