@@ -1,228 +1,1497 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Arte para Além do Olhar — exposição virtual sobre arte, audiodescrição e acessibilidade.">
+
 <title>Arte para Além do Olhar</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#faf7f0;color:#40382f;line-height:1.6}
-header{background:#eee5d5;padding:25px;text-align:center}
-header h1{font-size:2.3rem;color:#5d4937}
-header p{margin-top:8px}
-nav{background:#fffaf2;padding:12px;text-align:center;position:sticky;top:0;z-index:10}
-nav a{color:#604c39;text-decoration:none;margin:0 12px;font-weight:bold}
-section{max-width:1100px;margin:auto;padding:55px 20px}
-.hero{text-align:center;background:#f5eee2}
-.hero h2{font-size:2.6rem;color:#604936;margin-bottom:15px}
-.hero p{max-width:700px;margin:auto}
-.btn{display:inline-block;margin-top:20px;padding:12px 22px;background:#b8956d;color:white;border-radius:25px;text-decoration:none}
-h2{text-align:center;color:#604936;margin-bottom:25px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-.card{background:white;border-radius:15px;padding:18px;box-shadow:0 3px 12px #0001}
-.card img{width:100%;height:250px;object-fit:contain;background:#f3eee6;border-radius:10px}
-.card h3{margin:12px 0 6px;color:#604936}
-.card button{border:0;background:#b8956d;color:white;padding:9px 15px;border-radius:20px;cursor:pointer}
-.info{background:#f0e7da;border-radius:18px;padding:25px;margin-top:20px}
-footer{text-align:center;background:#e8ddce;padding:25px;margin-top:30px}
-.modal{display:none;position:fixed;inset:0;background:#0009;z-index:20;align-items:center;justify-content:center;padding:20px}
-.modal-content{background:#fffaf3;max-width:650px;width:100%;padding:25px;border-radius:18px;position:relative}
-.close{position:absolute;right:20px;top:10px;font-size:28px;cursor:pointer}
-.modal img{width:100%;max-height:400px;object-fit:contain;border-radius:10px}
-@media(max-width:600px){
-header h1{font-size:1.8rem}
-.hero h2{font-size:2rem}
-nav a{margin:0 5px;font-size:.9rem}
+
+:root{
+    --bg:#f7f4ee;
+    --paper:#fffdf9;
+    --beige:#e9e0d2;
+    --beige-dark:#d8c8b4;
+    --brown:#51463b;
+    --brown-light:#75685b;
+    --line:#d9d0c5;
+    --accent:#92785e;
+    --accent-dark:#715b45;
+    --black:#282522;
 }
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:var(--bg);
+    color:var(--brown);
+    line-height:1.7;
+}
+
+a{
+    color:inherit;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* HEADER */
+
+header{
+    background:var(--beige);
+    text-align:center;
+    padding:55px 20px 48px;
+    border-bottom:1px solid var(--line);
+}
+
+header h1{
+    font-size:clamp(2rem,5vw,3.4rem);
+    font-weight:500;
+    letter-spacing:.5px;
+    color:var(--brown);
+}
+
+header p{
+    margin-top:10px;
+    color:var(--brown-light);
+    font-family:Arial,sans-serif;
+    font-size:.95rem;
+    letter-spacing:.3px;
+}
+
+/* NAV */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,253,249,.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:12px 15px;
+}
+
+nav a{
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-size:.86rem;
+    color:var(--brown);
+    padding:8px 13px;
+    border-radius:4px;
+    transition:.2s;
+}
+
+nav a:hover,
+nav a:focus{
+    background:var(--beige);
+    outline:none;
+}
+
+/* GERAL */
+
+section{
+    max-width:1120px;
+    margin:auto;
+    padding:75px 22px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:42px;
+}
+
+.section-title h2{
+    font-size:clamp(1.7rem,4vw,2.45rem);
+    font-weight:500;
+    color:var(--brown);
+}
+
+.section-title p{
+    max-width:680px;
+    margin:12px auto 0;
+    color:var(--brown-light);
+}
+
+/* HERO */
+
+.hero{
+    max-width:none;
+    background:
+        linear-gradient(rgba(247,244,238,.9),rgba(247,244,238,.95));
+    text-align:center;
+    padding:100px 22px;
+    border-bottom:1px solid var(--line);
+}
+
+.hero-inner{
+    max-width:850px;
+    margin:auto;
+}
+
+.hero h2{
+    font-size:clamp(2.2rem,6vw,4rem);
+    font-weight:500;
+    line-height:1.15;
+    margin-bottom:22px;
+}
+
+.hero p{
+    max-width:720px;
+    margin:auto;
+    font-size:1.08rem;
+    color:var(--brown-light);
+}
+
+.hero-actions{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    padding:12px 24px;
+    border-radius:3px;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-size:.9rem;
+    border:1px solid var(--accent);
+    transition:.2s;
+    cursor:pointer;
+}
+
+.btn:hover,
+.btn:focus{
+    background:var(--accent-dark);
+    border-color:var(--accent-dark);
+    outline:3px solid rgba(146,120,94,.25);
+    outline-offset:2px;
+}
+
+/* INTRO */
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.intro-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:30px;
+}
+
+.intro-card .number{
+    font-family:Arial,sans-serif;
+    font-size:.78rem;
+    color:var(--accent);
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.intro-card h3{
+    font-size:1.25rem;
+    font-weight:500;
+    margin-bottom:10px;
+}
+
+.intro-card p{
+    color:var(--brown-light);
+}
+
+/* INFO */
+
+.info{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:32px;
+    max-width:900px;
+    margin:auto;
+}
+
+.info p + p{
+    margin-top:15px;
+}
+
+.info strong{
+    color:var(--brown);
+}
+
+/* GALERIA */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:transform .25s,box-shadow .25s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(70,55,40,.09);
+}
+
+.card-image{
+    width:100%;
+    height:290px;
+    object-fit:contain;
+    background:#eee9e0;
+    display:block;
+}
+
+.card-body{
+    padding:22px;
+}
+
+.card-body h3{
+    font-size:1.3rem;
+    font-weight:500;
+    margin-bottom:7px;
+}
+
+.card-body .author{
+    color:var(--accent);
+    font-family:Arial,sans-serif;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    margin-bottom:12px;
+}
+
+.card-body p{
+    color:var(--brown-light);
+    font-size:.95rem;
+}
+
+.card-body button{
+    margin-top:18px;
+}
+
+/* FILMES */
+
+.movie-card{
+    display:flex;
+    flex-direction:column;
+}
+
+.movie-image{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+    background:#e8e2d9;
+}
+
+.movie-meta{
+    color:var(--accent);
+    font-family:Arial,sans-serif;
+    font-size:.78rem;
+    margin-bottom:8px;
+}
+
+/* ARTISTAS */
+
+.artist-card .card-image{
+    object-fit:cover;
+}
+
+.artist-note{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid var(--line);
+    font-size:.88rem;
+    color:var(--brown-light);
+}
+
+/* EXPERIÊNCIA */
+
+.experience{
+    background:var(--beige);
+    max-width:none;
+}
+
+.experience-inner{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.experience h2{
+    font-size:2.3rem;
+    font-weight:500;
+    margin-bottom:18px;
+}
+
+.experience p{
+    color:var(--brown-light);
+    max-width:700px;
+    margin:auto;
+}
+
+/* PROJETO */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.project-box{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:30px;
+}
+
+.project-box h3{
+    font-size:1.25rem;
+    font-weight:500;
+    margin-bottom:15px;
+}
+
+.project-box p + p{
+    margin-top:9px;
+}
+
+/* FONTES */
+
+.sources{
+    font-family:Arial,sans-serif;
+}
+
+.sources a{
+    display:block;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+    text-decoration:none;
+    color:var(--accent-dark);
+}
+
+.sources a:hover{
+    text-decoration:underline;
+}
+
+/* QR */
+
+.qr-section{
+    text-align:center;
+}
+
+.qr-box{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:35px;
+    max-width:500px;
+    margin:auto;
+}
+
+#qrcode{
+    display:flex;
+    justify-content:center;
+    margin:25px 0;
+}
+
+#qrcode img{
+    width:180px;
+    height:180px;
+    border:10px solid:white;
+}
+
+/* FOOTER */
+
+footer{
+    background:#4b4239;
+    color:#eee7dd;
+    text-align:center;
+    padding:35px 20px;
+    font-family:Arial,sans-serif;
+    font-size:.85rem;
+}
+
+footer p + p{
+    margin-top:7px;
+    opacity:.75;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(25,22,19,.82);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    position:relative;
+    background:var(--paper);
+    width:min(760px,100%);
+    max-height:92vh;
+    overflow:auto;
+    padding:25px;
+    border-radius:4px;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:8px;
+    width:38px;
+    height:38px;
+    border:0;
+    background:transparent;
+    font-size:30px;
+    color:var(--brown);
+    cursor:pointer;
+}
+
+.close:hover{
+    background:var(--beige);
+}
+
+.modal img{
+    width:100%;
+    max-height:440px;
+    object-fit:contain;
+    background:#eee9e0;
+    margin-bottom:20px;
+}
+
+.modal h2{
+    font-size:1.8rem;
+    font-weight:500;
+    margin-bottom:12px;
+}
+
+.modal p{
+    color:var(--brown-light);
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:22px;
+}
+
+/* ACESSIBILIDADE */
+
+:focus-visible{
+    outline:3px solid #7a6046;
+    outline-offset:3px;
+}
+
+.skip-link{
+    position:absolute;
+    left:-9999px;
+    top:10px;
+    z-index:999;
+    background:#fff;
+    padding:10px 15px;
+}
+
+.skip-link:focus{
+    left:10px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:800px){
+
+    .intro-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:55px 18px;
+    }
+
+    .hero{
+        padding:75px 20px;
+    }
+}
+
+@media(max-width:550px){
+
+    nav{
+        gap:2px;
+    }
+
+    nav a{
+        font-size:.78rem;
+        padding:7px 8px;
+    }
+
+    .card-image{
+        height:240px;
+    }
+
+    .movie-image{
+        height:290px;
+    }
+
+    .info{
+        padding:23px;
+    }
+
+    .modal-content{
+        padding:18px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<a href="#conteudo" class="skip-link">
+    Pular para o conteúdo principal
+</a>
+
 <header>
-<h1>Arte para Além do Olhar</h1>
-<p>Uma pequena viagem pela arte, acessibilidade e imaginação</p>
+    <h1>Arte para Além do Olhar</h1>
+    <p>Arte, audiodescrição e acessibilidade</p>
 </header>
 
-<nav>
-<a href="#inicio">Início</a>
-<a href="#obras">Obras</a>
-<a href="#experiencia">Experiência</a>
-<a href="#projeto">Projeto</a>
+<nav aria-label="Navegação principal">
+    <a href="#inicio">Início</a>
+    <a href="#audiodescricao">Audiodescrição</a>
+    <a href="#obras">Obras</a>
+    <a href="#filmes">Filmes</a>
+    <a href="#artistas">Artistas</a>
+    <a href="#projeto">Projeto</a>
 </nav>
 
+<main id="conteudo">
+
+<!-- INÍCIO -->
+
 <section class="hero" id="inicio">
-<h2>Arte para sentir de outros jeitos.</h2>
-<p>
-Feche os olhos por um instante. Escute, imagine e só depois olhe.
-Esta exposição nasceu da ideia de que a arte também pode ser percebida
-por meio das palavras, dos sons e da imaginação.
-</p>
-<a href="#obras" class="btn">Conhecer as obras</a>
+
+    <div class="hero-inner">
+
+        <h2>Arte para sentir de outros jeitos.</h2>
+
+        <p>
+            Uma exposição virtual que propõe uma experiência diferente
+            diante da arte: primeiro ouvir, imaginar e construir mentalmente
+            uma imagem; depois, observar e comparar.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#obras" class="btn">
+                Entrar na exposição
+            </a>
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- INTRODUÇÃO -->
+
+<section id="audiodescricao">
+
+    <div class="section-title">
+
+        <h2>Quando uma imagem se transforma em palavras</h2>
+
+        <p>
+            A audiodescrição transforma elementos visuais em informações
+            verbais, permitindo que uma obra possa ser conhecida por outros
+            caminhos além da visão.
+        </p>
+
+    </div>
+
+
+    <div class="intro-grid">
+
+        <article class="intro-card">
+
+            <div class="number">01</div>
+
+            <h3>Observar</h3>
+
+            <p>
+                Identificar formas, cores, posições, expressões,
+                movimentos e outros elementos importantes da imagem.
+            </p>
+
+        </article>
+
+
+        <article class="intro-card">
+
+            <div class="number">02</div>
+
+            <h3>Selecionar</h3>
+
+            <p>
+                Escolher as informações essenciais para que a pessoa
+                consiga construir uma representação mental da obra.
+            </p>
+
+        </article>
+
+
+        <article class="intro-card">
+
+            <div class="number">03</div>
+
+            <h3>Descrever</h3>
+
+            <p>
+                Transformar aquilo que é visual em uma linguagem clara,
+                objetiva e compreensível.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- POR QUE -->
 
 <section>
-<h2>Quando a gente coloca uma imagem em palavras</h2>
-<div class="grid">
-<div class="card">
-<h3>👀 Olhar com atenção</h3>
-<p>Perceber cores, formas, expressões e pequenos detalhes que muitas vezes passam despercebidos.</p>
-</div>
 
-<div class="card">
-<h3>💭 Escolher o que importa</h3>
-<p>Entender quais elementos são essenciais para que outra pessoa consiga imaginar a obra.</p>
-</div>
+    <div class="section-title">
 
-<div class="card">
-<h3>🗣️ Colocar em palavras</h3>
-<p>Transformar aquilo que vemos em uma descrição clara, sensível e acessível.</p>
-</div>
-</div>
+        <h2>Por que audiodescrever?</h2>
+
+    </div>
+
+    <div class="info">
+
+        <p>
+            A acessibilidade amplia as possibilidades de participação
+            cultural. Em exposições, museus, apresentações e ambientes
+            digitais, a audiodescrição pode contribuir para que pessoas
+            cegas ou com baixa visão tenham acesso a informações visuais.
+        </p>
+
+        <p>
+            Mais do que descrever uma imagem, a proposta é criar uma
+            ponte entre a obra e quem a experiencia.
+        </p>
+
+    </div>
+
 </section>
 
-<section>
-<h2>Por que fazer isso?</h2>
-<div class="info">
-<p>
-A acessibilidade permite que mais pessoas tenham contato com a cultura
-e com a arte. A audiodescrição é uma das formas de tornar imagens,
-pinturas e exposições mais acessíveis para pessoas cegas ou com baixa visão.
-</p>
-</div>
-</section>
+
+<!-- OBRAS -->
 
 <section id="obras">
-<h2>Obras para olhar, imaginar e conversar.</h2>
-<div class="grid" id="gallery"></div>
+
+    <div class="section-title">
+
+        <h2>Obras para olhar, imaginar e conversar</h2>
+
+        <p>
+            Escolha uma obra. Leia a descrição antes de olhar para ela.
+            Depois, compare a imagem com aquilo que você imaginou.
+        </p>
+
+    </div>
+
+    <div class="gallery" id="gallery"></div>
+
 </section>
 
-<section id="experiencia">
-<h2>Antes de olhar, tente imaginar.</h2>
-<div class="info">
-<p>
-Escolha uma obra, leia a descrição e tente construir a imagem na sua cabeça.
-Depois, compare sua imaginação com a pintura.
-</p>
-</div>
+
+<!-- EXPERIÊNCIA -->
+
+<section class="experience">
+
+    <div class="experience-inner">
+
+        <h2>Antes de olhar, tente imaginar.</h2>
+
+        <p>
+            Escolha uma das obras acima e leia sua audiodescrição.
+            Feche os olhos por alguns segundos e construa mentalmente
+            a cena. Depois, abra os olhos e compare sua imaginação
+            com a obra apresentada.
+        </p>
+
+    </div>
+
 </section>
+
+
+<!-- FILMES -->
+
+<section id="filmes">
+
+    <div class="section-title">
+
+        <h2>Filmes e experiências audiovisuais</h2>
+
+        <p>
+            O cinema também pode discutir deficiência visual,
+            acessibilidade, percepção e diferentes formas de
+            experimentar o mundo.
+        </p>
+
+    </div>
+
+    <div class="gallery" id="movies"></div>
+
+</section>
+
+
+<!-- ARTISTAS -->
+
+<section id="artistas">
+
+    <div class="section-title">
+
+        <h2>Artistas com deficiência visual</h2>
+
+        <p>
+            A deficiência visual não impede a produção artística.
+            Estes artistas mostram diferentes possibilidades de criação,
+            percepção e expressão.
+        </p>
+
+    </div>
+
+    <div class="gallery" id="artists"></div>
+
+</section>
+
+
+<!-- ACESSIBILIDADE -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Acessibilidade também é participação</h2>
+
+    </div>
+
+    <div class="info">
+
+        <p>
+            Pensar acessibilidade significa considerar diferentes formas
+            de acesso, participação e compreensão. No caso das artes
+            visuais, a audiodescrição é uma das ferramentas que pode
+            aproximar a obra de pessoas cegas ou com baixa visão.
+        </p>
+
+        <p>
+            Uma exposição acessível não precisa abandonar a experiência
+            visual. Ela pode ampliar a experiência para que diferentes
+            pessoas possam participar dela.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PROJETO -->
 
 <section id="projeto">
-<h2>Uma experiência feita por nós</h2>
-<div class="info">
-<p>
-Este projeto foi desenvolvido por estudantes da Universidade Federal
-do Oeste da Bahia, unindo arte, acessibilidade e criatividade.
-</p>
-<br>
-<p><strong>Integrantes:</strong> Jaqueline Garcia, Juliana Baldin, Lívia Lopes e Monalisa Profeta.</p>
-<p><strong>Curso:</strong> Bacharelado em Direito</p>
-<p><strong>Disciplina:</strong> Oficina de Artes e Sensibilidades Jurídicas</p>
-<p><strong>Universidade:</strong> Universidade Federal do Oeste da Bahia – UFOB</p>
-</div>
+
+    <div class="section-title">
+
+        <h2>Sobre o projeto</h2>
+
+    </div>
+
+
+    <div class="project-grid">
+
+        <div class="project-box">
+
+            <h3>Uma experiência feita por nós</h3>
+
+            <p>
+                Este projeto foi desenvolvido por estudantes da
+                Universidade Federal do Oeste da Bahia, relacionando
+                arte, acessibilidade, percepção e sensibilidades.
+            </p>
+
+        </div>
+
+
+        <div class="project-box">
+
+            <h3>Identificação</h3>
+
+            <p><strong>Integrantes:</strong></p>
+
+            <p>
+                Jaqueline Garcia<br>
+                Juliana Baldin<br>
+                Lívia Lopes<br>
+                Monalisa Profeta
+            </p>
+
+            <p>
+                <strong>Curso:</strong> Bacharelado em Direito
+            </p>
+
+            <p>
+                <strong>Disciplina:</strong>
+                Oficina de Artes e Sensibilidades Jurídicas
+            </p>
+
+            <p>
+                <strong>Universidade:</strong>
+                Universidade Federal do Oeste da Bahia — UFOB
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section>
-<h2>De onde vieram essas informações</h2>
-<div class="info">
-<p>
-As imagens e informações utilizadas na exposição foram pesquisadas
-em fontes públicas e referências relacionadas às obras apresentadas.
-</p>
-</div>
-</section>
+
+<!-- FONTES -->
 
 <section>
-<h2>Leve a exposição com você</h2>
-<div class="info" style="text-align:center">
-<p>Aponte a câmera do celular para o QR Code e acesse a exposição.</p>
-<div id="qrcode" style="margin:20px"></div>
-</div>
+
+    <div class="section-title">
+
+        <h2>Fontes e referências</h2>
+
+        <p>
+            Consulte as fontes para conhecer as obras, os artistas
+            e os temas apresentados nesta exposição.
+        </p>
+
+    </div>
+
+    <div class="info sources">
+
+        <a
+            href="https://commons.wikimedia.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Wikimedia Commons — acervo de imagens
+        </a>
+
+        <a
+            href="https://www.museodelprado.es/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Museo Nacional del Prado
+        </a>
+
+        <a
+            href="https://www.moma.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Museum of Modern Art — MoMA
+        </a>
+
+        <a
+            href="https://www.metmuseum.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            The Metropolitan Museum of Art
+        </a>
+
+        <a
+            href="https://www.britishmuseum.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            British Museum
+        </a>
+
+    </div>
+
 </section>
+
+
+<!-- QR CODE -->
+
+<section class="qr-section">
+
+    <div class="section-title">
+
+        <h2>Leve a exposição com você</h2>
+
+        <p>
+            O QR Code pode ser utilizado para disponibilizar o endereço
+            desta exposição durante a apresentação.
+        </p>
+
+    </div>
+
+    <div class="qr-box">
+
+        <p>
+            Escaneie o código para acessar a exposição.
+        </p>
+
+        <div id="qrcode"></div>
+
+        <p style="font-size:.85rem;color:#75685b">
+            Para funcionar, altere o endereço no código JavaScript
+            para o link em que este site estiver hospedado.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
 
 <footer>
-<p>Arte para Além do Olhar • UFOB</p>
+
+    <p>Arte para Além do Olhar</p>
+
+    <p>
+        Projeto acadêmico — Universidade Federal do Oeste da Bahia
+    </p>
+
 </footer>
 
-<div class="modal" id="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">×</span>
-<img id="modalImg" src="" alt="">
-<h2 id="modalTitle"></h2>
-<p id="modalText"></p>
-<button class="btn" onclick="speak()">🔊 Ouvir descrição</button>
+
+<!-- MODAL -->
+
+<div
+    class="modal"
+    id="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    aria-describedby="modalText"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            onclick="closeModal()"
+            aria-label="Fechar"
+        >
+            ×
+        </button>
+
+        <img
+            id="modalImg"
+            src=""
+            alt=""
+        >
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalText"></p>
+
+        <div class="modal-actions">
+
+            <button
+                class="btn"
+                onclick="speak()"
+            >
+                Ouvir descrição
+            </button>
+
+            <button
+                class="btn"
+                onclick="stopSpeak()"
+            >
+                Parar leitura
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
-</div>
+
 
 <script>
-const works=[
+
+/* ==========================================================
+   OBRAS
+========================================================== */
+
+const works = [
+
 {
-title:"Mona Lisa",
-img:"https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa.jpg",
-text:"Mona Lisa, de Leonardo da Vinci, apresenta uma mulher sentada, com roupas escuras e um olhar tranquilo. Ao fundo aparece uma paisagem com montanhas e caminhos."
+    title:"Mona Lisa",
+    author:"Leonardo da Vinci",
+    year:"c. 1503–1506",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Mona_Lisa.jpg",
+    text:
+    "A Mona Lisa apresenta uma mulher sentada, vista da cintura para cima. " +
+    "Ela veste roupas escuras e olha diretamente para quem observa a pintura. " +
+    "Seu rosto apresenta uma expressão serena, com um leve sorriso. " +
+    "Ao fundo aparece uma paisagem distante, formada por caminhos, rios, montanhas e tons azulados."
 },
+
 {
-title:"O Grito",
-img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Scream.jpg",
-text:"O Grito, de Edvard Munch, mostra uma figura em primeiro plano com as mãos próximas ao rosto e uma expressão intensa. O céu aparece em tons fortes e ondulados."
+    title:"O Grito",
+    author:"Edvard Munch",
+    year:"1893",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Edvard-Munch-The-Scream.jpg",
+    text:
+    "No centro da composição aparece uma figura humana diante de uma paisagem. " +
+    "A pessoa leva as mãos próximas ao rosto e apresenta uma expressão intensa. " +
+    "O céu possui grandes faixas onduladas em tons alaranjados e avermelhados. " +
+    "Ao fundo aparecem duas pessoas caminhando sobre uma ponte."
 },
+
 {
-title:"A Noite Estrelada",
-img:"https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
-text:"A Noite Estrelada, de Vincent van Gogh, apresenta um céu noturno cheio de estrelas, movimentos circulares e cores intensas. Abaixo aparece uma pequena cidade."
+    title:"A Noite Estrelada",
+    author:"Vincent van Gogh",
+    year:"1889",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/La_noche_estrellada1.jpg",
+    text:
+    "A pintura apresenta uma paisagem noturna. " +
+    "O céu ocupa grande parte da composição e é formado por movimentos circulares e ondulados em tons de azul. " +
+    "Estrelas e uma lua aparecem como pontos luminosos. " +
+    "Na parte inferior há uma pequena cidade e, à esquerda, uma grande árvore escura se eleva em direção ao céu."
 },
+
 {
-title:"Abaporu",
-img:"https://commons.wikimedia.org/wiki/Special:FilePath/Abaporu.jpg",
-text:"Abaporu, de Tarsila do Amaral, apresenta uma figura humana de cabeça pequena, braços e pernas grandes, sentada diante de uma paisagem simples."
+    title:"Abaporu",
+    author:"Tarsila do Amaral",
+    year:"1928",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Abaporu.jpg",
+    text:
+    "A pintura apresenta uma figura humana sentada diante de uma paisagem. " +
+    "A cabeça é pequena em comparação com o corpo. " +
+    "Os braços e as pernas são muito grandes e ocupam grande parte da composição. " +
+    "A figura está próxima de um cacto e aparece sob um céu azul."
 },
+
 {
-title:"A Persistência da Memória",
-img:"https://commons.wikimedia.org/wiki/Special:FilePath/The_Persistence_of_Memory.jpg",
-text:"A Persistência da Memória, de Salvador Dalí, mostra relógios derretidos espalhados por uma paisagem silenciosa e surreal."
+    title:"A Persistência da Memória",
+    author:"Salvador Dalí",
+    year:"1931",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Persistence_of_Memory.jpg",
+    text:
+    "A pintura apresenta uma paisagem silenciosa e surreal. " +
+    "Sobre diferentes superfícies aparecem relógios com aparência derretida, como se fossem objetos flexíveis. " +
+    "Ao fundo há uma paisagem rochosa e, no centro, uma forma orgânica sobre a qual repousa outro relógio. " +
+    "A cena transmite uma sensação de suspensão do tempo."
 }
+
 ];
 
-const gallery=document.getElementById("gallery");
 
-works.forEach((work,i)=>{
-gallery.innerHTML+=`
-<div class="card">
-<img src="${work.img}" alt="${work.title}">
-<h3>${work.title}</h3>
-<p>${work.text}</p>
-<button onclick="openModal(${i})">Ver detalhes</button>
-</div>`;
+/* ==========================================================
+   FILMES
+========================================================== */
+
+const movies = [
+
+{
+    title:"Notes on Blindness",
+    author:"Documentário",
+    year:"2016",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Notes_on_Blindness_film_poster.jpg",
+    text:
+    "Documentário inspirado nos diários de John Hull, escritor e professor que perdeu a visão na vida adulta. " +
+    "O filme explora sua experiência com a cegueira e a transformação de sua percepção do mundo."
+},
+
+{
+    title:"O País dos Surdos",
+    author:"Nicolas Philibert",
+    year:"1992",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Le_pays_des_sourds.jpg",
+    text:
+    "Documentário que acompanha pessoas surdas e apresenta diferentes experiências de comunicação e percepção. " +
+    "A obra contribui para refletir sobre acessibilidade e sobre a importância de diferentes formas de linguagem."
+},
+
+{
+    title:"Hoje Eu Quero Voltar Sozinho",
+    author:"Daniel Ribeiro",
+    year:"2014",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Way_He_Looks_poster.jpg",
+    text:
+    "O filme acompanha Leonardo, um adolescente cego que busca maior independência e vive novas experiências de amizade e afeto. " +
+    "A narrativa aborda autonomia, relações sociais e a forma como a deficiência visual faz parte da experiência do personagem."
+}
+
+];
+
+
+/* ==========================================================
+   ARTISTAS COM DEFICIÊNCIA VISUAL
+========================================================== */
+
+const artists = [
+
+{
+    title:"John Bramblitt",
+    author:"Artista visual",
+    year:"Estados Unidos",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/John_Bramblitt.jpg",
+    text:
+    "John Bramblitt é um artista visual norte-americano que perdeu a visão. " +
+    "Ele desenvolveu métodos próprios para pintar utilizando principalmente o tato, a memória e a percepção das texturas. " +
+    "Sua produção artística é frequentemente relacionada à discussão sobre arte e deficiência visual."
+},
+
+{
+    title:"Esref Armagan",
+    author:"Pintor",
+    year:"Turquia",
+    img:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Esref_Armagan.jpg",
+    text:
+    "Esref Armagan é um pintor turco cego desde o nascimento. " +
+    "Ele produz pinturas utilizando técnicas próprias e explora formas, cores e perspectiva. " +
+    "Seu trabalho é frequentemente apresentado em discussões sobre percepção, arte e deficiência visual."
+}
+
+];
+
+
+/* ==========================================================
+   GALERIA DE OBRAS
+========================================================== */
+
+const gallery = document.getElementById("gallery");
+
+works.forEach((work,index)=>{
+
+    gallery.innerHTML += `
+
+        <article class="card">
+
+            <img
+                class="card-image"
+                src="${work.img}"
+                alt="${work.title}, obra de ${work.author}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x1000/e9e0d2/51463b?text=Imagem+da+obra';"
+            >
+
+            <div class="card-body">
+
+                <div class="author">
+                    ${work.author}
+                </div>
+
+                <h3>${work.title}</h3>
+
+                <p>${work.text}</p>
+
+                <button
+                    class="btn"
+                    onclick="openModal('work',${index})"
+                >
+                    Ver audiodescrição
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+
 });
 
-function openModal(i){
-document.getElementById("modalImg").src=works[i].img;
-document.getElementById("modalImg").alt=works[i].title;
-document.getElementById("modalTitle").textContent=works[i].title;
-document.getElementById("modalText").textContent=works[i].text;
-document.getElementById("modal").style.display="flex";
+
+/* ==========================================================
+   FILMES
+========================================================== */
+
+const moviesContainer = document.getElementById("movies");
+
+movies.forEach((movie,index)=>{
+
+    moviesContainer.innerHTML += `
+
+        <article class="card movie-card">
+
+            <img
+                class="movie-image"
+                src="${movie.img}"
+                alt="Imagem relacionada ao filme ${movie.title}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x1000/e9e0d2/51463b?text=${encodeURIComponent(movie.title)}';"
+            >
+
+            <div class="card-body">
+
+                <div class="movie-meta">
+                    ${movie.author} · ${movie.year}
+                </div>
+
+                <h3>${movie.title}</h3>
+
+                <p>${movie.text}</p>
+
+                <button
+                    class="btn"
+                    onclick="openModal('movie',${index})"
+                >
+                    Ver detalhes
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+
+});
+
+
+/* ==========================================================
+   ARTISTAS
+========================================================== */
+
+const artistsContainer = document.getElementById("artists");
+
+artists.forEach((artist,index)=>{
+
+    artistsContainer.innerHTML += `
+
+        <article class="card artist-card">
+
+            <img
+                class="card-image"
+                src="${artist.img}"
+                alt="Imagem de ${artist.title}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x800/e9e0d2/51463b?text=${encodeURIComponent(artist.title)}';"
+            >
+
+            <div class="card-body">
+
+                <div class="author">
+                    ${artist.author}
+                </div>
+
+                <h3>${artist.title}</h3>
+
+                <p>${artist.text}</p>
+
+                <button
+                    class="btn"
+                    onclick="openModal('artist',${index})"
+                >
+                    Conhecer artista
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+
+});
+
+
+/* ==========================================================
+   MODAL
+========================================================== */
+
+const modal = document.getElementById("modal");
+
+let currentText = "";
+
+function openModal(type,index){
+
+    let item;
+
+    if(type === "work"){
+        item = works[index];
+    }
+
+    if(type === "movie"){
+        item = movies[index];
+    }
+
+    if(type === "artist"){
+        item = artists[index];
+    }
+
+    document.getElementById("modalImg").src = item.img;
+
+    document.getElementById("modalImg").alt = item.title;
+
+    document.getElementById("modalTitle").textContent =
+        item.title;
+
+    document.getElementById("modalText").textContent =
+        item.text;
+
+    currentText = item.text;
+
+    modal.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
 }
+
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
-speechSynthesis.cancel();
+
+    modal.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+    speechSynthesis.cancel();
+
 }
+
 
 function speak(){
-const text=document.getElementById("modalText").textContent;
-const speech=new SpeechSynthesisUtterance(text);
-speech.lang="pt-BR";
-speech.rate=.9;
-speechSynthesis.speak(speech);
+
+    speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(currentText);
+
+    speech.lang = "pt-BR";
+
+    speech.rate = 0.88;
+
+    speech.pitch = 1;
+
+    speech.volume = 1;
+
+    speechSynthesis.speak(speech);
+
 }
 
-window.onclick=function(e){
-if(e.target===document.getElementById("modal"))closeModal();
+
+function stopSpeak(){
+
+    speechSynthesis.cancel();
+
 }
 
-document.getElementById("qrcode").innerHTML=
-`<div style="font-size:70px">▣</div><p>QR Code da exposição</p>`;
+
+/* ==========================================================
+   FECHAR MODAL
+========================================================== */
+
+window.addEventListener("click",function(event){
+
+    if(event.target === modal){
+        closeModal();
+    }
+
+});
+
+
+window.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        closeModal();
+    }
+
+});
+
+
+/* ==========================================================
+   QR CODE
+========================================================== */
+
+/*
+   IMPORTANTE:
+
+   Troque o endereço abaixo pelo endereço real do site.
+
+   Exemplo:
+
+   const siteURL = "https://seusite.com";
+
+*/
+
+const siteURL = window.location.href;
+
+const qrContainer = document.getElementById("qrcode");
+
+qrContainer.innerHTML = `
+
+    <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(siteURL)}"
+        alt="QR Code para acessar a exposição virtual"
+    >
+
+`;
+
+
+/* ==========================================================
+   TRATAMENTO DE ERROS DAS IMAGENS
+========================================================== */
+
+document.querySelectorAll("img").forEach(img => {
+
+    img.addEventListener("error",function(){
+
+        if(!this.dataset.fallback){
+
+            this.dataset.fallback = "true";
+
+            const title =
+                this.alt || "Imagem";
+
+            this.src =
+                "https://placehold.co/800x800/e9e0d2/51463b?text=" +
+                encodeURIComponent(title);
+
+        }
+
+    });
+
+});
+
 </script>
 
 </body>
 </html>
+```
