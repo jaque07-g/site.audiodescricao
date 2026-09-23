@@ -36,7 +36,7 @@ section{max-width:1120px;margin:auto;padding:75px 22px}
 .btn:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
 
 .intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.intro-card,.project-box,.info,.qr-box,.card{background:var(--paper);border:1px solid var(--line)}
+.intro-card,.project-box,.info,.card{background:var(--paper);border:1px solid var(--line)}
 .intro-card{padding:30px}
 .intro-card h3,.project-box h3{font-size:1.25rem;font-weight:500;margin-bottom:10px}
 .intro-card p{color:var(--brown-light)}
@@ -68,11 +68,8 @@ section{max-width:1120px;margin:auto;padding:75px 22px}
 .sources a{display:block;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--accent-dark)}
 .sources a:hover{text-decoration:underline}
 
-.qr-section{text-align:center}
-.qr-box{padding:35px;max-width:500px;margin:auto}
-#qrcode{display:flex;justify-content:center;margin:25px 0}
-#qrcode img{width:180px;height:180px;border:10px solid #fff}
-.qr-note{font-size:.85rem;color:var(--brown-light)}
+.refs{margin-top:25px;font-family:Arial,sans-serif;font-size:.9rem;overflow-wrap:anywhere}
+.refs a{color:var(--accent-dark)}
 
 footer{background:#4b4239;color:#eee7dd;text-align:center;padding:35px 20px;font-family:Arial,sans-serif;font-size:.85rem}
 footer p+p{margin-top:7px;opacity:.75}
@@ -256,22 +253,25 @@ footer p+p{margin-top:7px;opacity:.75}
     </div>
     <div class="info sources">
         <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer">Wikimedia Commons — acervo de imagens</a>
-        <a href="https://www.museodelprado.es/" target="_blank" rel="noopener noreferrer">Museo Nacional del Prado</a>
         <a href="https://www.moma.org/" target="_blank" rel="noopener noreferrer">Museum of Modern Art — MoMA</a>
-        <a href="https://www.metmuseum.org/" target="_blank" rel="noopener noreferrer">The Metropolitan Museum of Art</a>
-        <a href="https://www.britishmuseum.org/" target="_blank" rel="noopener noreferrer">British Museum</a>
     </div>
-</section>
-
-<section class="qr-section">
-    <div class="section-title">
-        <h2>Leve a exposição com você</h2>
-        <p>O QR Code pode ser utilizado para disponibilizar o endereço desta exposição durante a apresentação.</p>
-    </div>
-    <div class="qr-box">
-        <p>Escaneie o código para acessar a exposição.</p>
-        <div id="qrcode"></div>
-        <p class="qr-note">Aponte a câmera do celular para o código para abrir a exposição.</p>
+    <div class="info refs">
+        <p>
+            ITAÚ CULTURAL. <strong>Arte e acesso</strong>: portfólio coletivo de artistas com deficiência.
+            Disponível em: <a href="https://www.itaucultural.org.br/arte-e-acesso" target="_blank" rel="noopener noreferrer">https://www.itaucultural.org.br/arte-e-acesso</a>.
+            Acesso em: 23 set. 2026.
+        </p>
+        <p>
+            <strong>JANELA da alma</strong>. Direção: João Jardim e Walter Carvalho. São Paulo: Brasil Telecom/Ravina Filmes, 2001.
+            1 DVD (73 min). Disponível em: <a href="https://www.youtube.com/watch?v=_I9l7upG0DI" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=_I9l7upG0DI</a>.
+            Acesso em: 23 set. 2026.
+        </p>
+        <p>
+            SANTOS, Admilson; SILVA, Luciene Maria da; FARIAS, Sandra Regina Rosa. O olhar, a palavra e a audiodescrição (AD).
+            <strong>Revista da FAEEBA: Educação e Contemporaneidade</strong>, Salvador, v. 26, n. 50, p. 63-76, dez. 2017.
+            Disponível em: <a href="https://revistas.uneb.br/index.php/faeeba/article/view/4262" target="_blank" rel="noopener noreferrer">https://revistas.uneb.br/index.php/faeeba/article/view/4262</a>.
+            Acesso em: 23 set. 2026.
+        </p>
     </div>
 </section>
 
@@ -309,8 +309,7 @@ const IMG = {
     pais:"https://cdn.fstatic.com/media/groups/2017/08/29/1992-3859204096.jpg",
     hoje:"https://cinema-em-cena.nyc3.cdn.digitaloceanspaces.com/reviews/31/mMSZyYMy1jMeeCWcD44RBJZAe2k.jpg",
     jeimisson:"https://adevise.com.br/wp-content/uploads/2024/05/jeimisson.jpg",
-    eduardinho:"eduardinho.jpg",
-    qr:"qr-code.jpg"
+    eduardinho:"https://s2-g1.glbimg.com/6weKOgDYwYaUZKElZZFzDb_bxFs=/0x0:3735x2101/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/A/1/Dk0olfTue5UgovvpHGYw/img-9415.jpg.jpeg"
 };
 
 /* Plano B: se o link da internet falhar, usa o arquivo da mesma pasta */
@@ -318,7 +317,8 @@ const LOCAL = {
     [IMG.luto]:"luto.jpg",
     [IMG.pais]:"pais-dos-surdos.jpg",
     [IMG.hoje]:"hoje-eu-quero-voltar-sozinho.jpg",
-    [IMG.jeimisson]:"jeimisson-cesar.jpg"
+    [IMG.jeimisson]:"jeimisson-cesar.jpg",
+    [IMG.eduardinho]:"eduardinho.jpg"
 };
 
 const wiki = f => "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(f) + "?width=800";
@@ -331,16 +331,10 @@ const works = [
     { title:"O Grito", author:"Edvard Munch", img:wiki("The_Scream.jpg"),
       text:"No centro da composição aparece uma figura humana diante de uma paisagem. A pessoa leva as mãos próximas ao rosto e apresenta uma expressão intensa. O céu possui grandes faixas onduladas em tons alaranjados e avermelhados. Ao fundo aparecem duas pessoas caminhando sobre uma ponte." },
     { title:"A Noite Estrelada", author:"Vincent van Gogh", img:wiki("Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"),
-      text:"A pintura apresenta uma paisagem noturna. O céu ocupa grande parte da composição e é formado por movimentos circulares e ondulados em tons de azul. Estrelas e uma lua aparecem como pontos luminosos. Na parte inferior há uma pequena cidade e, à esquerda, uma grande árvore escura se eleva em direção ao céu." },
-    { title:"Abaporu", author:"Tarsila do Amaral", img:IMG.abaporu,
-      text:"A pintura apresenta uma figura humana sentada diante de uma paisagem. A cabeça é pequena em comparação com o corpo. Os braços e as pernas são muito grandes e ocupam grande parte da composição. A figura está próxima de um cacto e aparece sob um céu azul." },
-    { title:"A Persistência da Memória", author:"Salvador Dalí", img:wiki("The_Persistence_of_Memory.jpg"),
-      text:"A pintura apresenta uma paisagem silenciosa e surreal. Sobre diferentes superfícies aparecem relógios com aparência derretida, como se fossem objetos flexíveis. Ao fundo há uma paisagem rochosa e, no centro, uma forma orgânica sobre a qual repousa outro relógio. A cena transmite uma sensação de suspensão do tempo." }
+      text:"A pintura apresenta uma paisagem noturna. O céu ocupa grande parte da composição e é formado por movimentos circulares e ondulados em tons de azul. Estrelas e uma lua aparecem como pontos luminosos. Na parte inferior há uma pequena cidade e, à esquerda, uma grande árvore escura se eleva em direção ao céu." }
 ];
 
 const movies = [
-    { title:"Notes on Blindness", author:"Documentário", year:"2016", img:IMG.notes,
-      text:"Documentário inspirado nos diários de John Hull, escritor e professor que perdeu a visão na vida adulta. O filme explora sua experiência com a cegueira e a transformação de sua percepção do mundo." },
     { title:"O País dos Surdos", author:"Nicolas Philibert", year:"1992", img:IMG.pais,
       text:"Documentário que acompanha pessoas surdas e apresenta diferentes experiências de comunicação e percepção. A obra contribui para refletir sobre acessibilidade e sobre a importância de diferentes formas de linguagem." },
     { title:"Hoje Eu Quero Voltar Sozinho", author:"Daniel Ribeiro", year:"2014", img:IMG.hoje,
@@ -370,7 +364,7 @@ const fallback = title =>
 /* Se uma imagem falhar: 1º tenta o arquivo da pasta, 2º mostra o quadro com o título */
 document.addEventListener("error", e => {
     const img = e.target;
-    if (img.tagName !== "IMG" || img.closest("#qrcode")) return;
+    if (img.tagName !== "IMG") return;
 
     const src = img.getAttribute("src");
     if (LOCAL[src] && img.dataset.triedLocal !== src) {
@@ -446,12 +440,6 @@ document.getElementById("closeBtn").onclick = closeModal;
 document.getElementById("speakBtn").onclick = speak;
 document.getElementById("stopBtn").onclick = () => speechSynthesis.cancel();
 window.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-
-/* ==========================================================
-   QR CODE
-========================================================== */
-document.getElementById("qrcode").innerHTML =
-    `<img src="${IMG.qr}" alt="QR Code para acessar a exposição virtual">`;
 </script>
 
 </body>
